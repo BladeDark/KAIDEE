@@ -1,7 +1,7 @@
 # ECOM World Ticket 
 This automation use selenium 3 and genearte report by using serenity
 
-#Tag for executions:
+# Tag for executions:
 - @Oneway (execute all one way scenarios)
 - @Roundtrip (execute all round trip scenarios)
 - @Package (execute all package scenarios)
@@ -12,7 +12,7 @@ This automation use selenium 3 and genearte report by using serenity
 - @Normal_User
 - @MultiFlight
 
-#Note
+# Note
 If you want to ignore the tag, you can use this in the build properties:
 cucumber.options=--tags ~@ignore
 

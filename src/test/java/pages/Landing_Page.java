@@ -113,13 +113,15 @@ public class Landing_Page extends PageObject {
 
 	}
 
-	public void select_Origin_Airport(String input) {
+	public void select_Origin_Airport(String input) throws InterruptedException  {
 		WebElementFacade element = find(By.id("origin"));
 		// method.input_DisabledField(getDriver(), element);
+		Thread.sleep(500);
 		element.clear();
 		element.sendKeys(input);
 		WebElementFacade clickOrigin = find(By.xpath(".//*[@id='originselect']//*[contains(text(),'" + input + "')]"));
-		clickOrigin.waitUntilClickable();
+		Thread.sleep(500);
+		clickOrigin.waitUntilVisible();
 		clickOrigin.click();
 
 		origin_Airport = input;
@@ -222,9 +224,29 @@ public class Landing_Page extends PageObject {
 		element.selectByValue(input);
 	}
 
-	public void select_Child(String input) {
+	public void select_Child(String input) throws InterruptedException {
+		setImplicitTimeout(3, TimeUnit.SECONDS);
+		WebElementFacade isUMNRdisplay = find(By.xpath("//*[@id='umnr-text-modal']//button[@class='btn button btn-checkout']"));
 		WebElementFacade element = find(By.id("select-child"));
-		element.selectByValue(input);
+		
+		if (isUMNRdisplay.isCurrentlyVisible()){
+			Thread.sleep(500);
+			isUMNRdisplay.click();
+			element.selectByValue(input);
+		}else{
+		
+			element.selectByValue(input);
+			
+			if (isUMNRdisplay.isCurrentlyVisible()){
+				Thread.sleep(500);
+				isUMNRdisplay.click();
+			}
+		}
+		
+	
+		
+		resetImplicitTimeout();
+
 	}
 
 	public void select_Infant(String input) {

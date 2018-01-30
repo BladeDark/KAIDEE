@@ -35,5 +35,5 @@ Scenario Outline: Login with rloc/lastname
 	
 	
 	Examples: 
-		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
+		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		0		|		0		|		CASH					|

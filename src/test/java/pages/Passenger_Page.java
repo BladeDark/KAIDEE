@@ -369,20 +369,23 @@ public class Passenger_Page extends PageObject {
 	}
 
 	public void copy_contact_passenger_infomration() throws InterruptedException {
-		this.element_copy_contact_information().selectByValue("0");
-		this.click_Go_to_Copy();
-
-		title = this.element_contact_Title().getValue();
+		setImplicitTimeout(1, TimeUnit.SECONDS);
+		if (this.element_copy_contact_information().isVisible()) {
+			this.element_copy_contact_information().selectByValue("0");
+			this.click_Go_to_Copy();
+		}
+		/*title = this.element_contact_Title().getValue();
 		firstname = this.element_contact_FistName().getValue();
 		lastname = this.element_contact_LastName().getValue();
-		//email = this.element_contact_Email().getValue();
-		
+		email = this.element_contact_Email().getValue();
+		country = this.element_contact_Country().getValue();
+		mobilephone = this.element_contact_MobilePhone().getValue();
+		*/
 		if (this.element_contact_Email().getValue().isEmpty()) {
 			this.element_contact_Email().sendKeys("nas@worldticket.net");
 		}
-		country = this.element_contact_Country().getValue();
-		mobilephone = this.element_contact_MobilePhone().getValue();
-
+	
+		resetImplicitTimeout();
 
 	}
 }
