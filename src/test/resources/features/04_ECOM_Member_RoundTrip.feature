@@ -1,16 +1,15 @@
-Feature: Verify ECOM booking fllow for UMNR
+Feature: Verify ECOM booking flow for round trip
 As a Member
-They want to book UMNR flight on ECOM
+They want to book flight on ECOM
 so that They can book the flight successfully
 
 Background: 
 	Given I am on world ticket website 
 	And I login normal user successfully
 	
-
+@Normal_User
 @Roundtrip
-@UMNR
-Scenario Outline: UMNR book return in normal case
+Scenario Outline: Member Book Return in normal case
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -37,13 +36,14 @@ Scenario Outline: UMNR book return in normal case
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
-	
+		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		3		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		0		|		DIBS					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		3		|		Emerchantpay			|
 
+@Normal_User
 @Roundtrip
-@UMNR
 @Package
-Scenario Outline: UMNR Book Return with package
+Scenario Outline: Member Book Return with package
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -76,12 +76,14 @@ Scenario Outline: UMNR Book Return with package
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
+@Normal_User	
 @Roundtrip
-@UMNR
 @Extras
-Scenario Outline: UMNR Book Return with extra
+Scenario Outline: Member Book Return with extra
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -116,13 +118,15 @@ Scenario Outline: UMNR Book Return with extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
+@Normal_User		
 @Roundtrip
-@UMNR
 @Package
 @Extras
-Scenario Outline: UMNR Book Return with package and extra
+Scenario Outline: Member Book Return with package and extra
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -161,13 +165,14 @@ Scenario Outline: UMNR Book Return with package and extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
-		
+@Normal_User
 @Roundtrip
-@UMNR
 @Package
-Scenario Outline: UMNR Book Return and buy package after
+Scenario Outline: Member Book Return and buy package after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -207,13 +212,14 @@ Scenario Outline: UMNR Book Return and buy package after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
-
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
+@Normal_User
 @Roundtrip
-@UMNR
 @Extras
-Scenario Outline: UMNR Book Return and buy extras after
+Scenario Outline: Member Book Return and buy extras after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -255,13 +261,15 @@ Scenario Outline: UMNR Book Return and buy extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
-
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
+		
+@Normal_User	
 @Roundtrip
-@UMNR
 @Package
 @Extras
-Scenario Outline: UMNR Book Return and buy package and extras after
+Scenario Outline: Member Book Return and buy package and extras after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -306,13 +314,14 @@ Scenario Outline: UMNR Book Return and buy package and extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
-
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
+@Normal_User	
 @Roundtrip
-@UMNR
 @Namechange
-Scenario Outline: UMNR Book Return and change name all passenger
+Scenario Outline: Member Book Return and change name all passenger
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -348,13 +357,14 @@ Scenario Outline: UMNR Book Return and change name all passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
 		
-		
+@Normal_User	
 @Roundtrip
-@UMNR
 @Namechange
-Scenario Outline: UMNR Book Return and change name only one passenger
+Scenario Outline: Member Book Return and change name only one passenger
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -390,14 +400,15 @@ Scenario Outline: UMNR Book Return and change name only one passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
-	
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
 
 
+@Normal_User
 @Roundtrip
-@UMNR
 @Rebook
-Scenario Outline: UMNR Book Round trip and rebook only outbound segment
+Scenario Outline: Member Book Round trip and rebook only outbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -437,13 +448,14 @@ Scenario Outline: UMNR Book Round trip and rebook only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
-
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
 		
+@Normal_User
 @Roundtrip
-@UMNR
 @Rebook
-Scenario Outline: UMNR Book Round trip and rebook only inbound segment
+Scenario Outline: Member Book Round trip and rebook only inbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -483,13 +495,14 @@ Scenario Outline: UMNR Book Round trip and rebook only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
 
-
+@Normal_User
 @Roundtrip
-@UMNR
 @Rebook
-Scenario Outline: UMNR Book Round trip and rebook outbound and inbound segment
+Scenario Outline: Member Book Round trip and rebook outbound and inbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -533,13 +546,14 @@ Scenario Outline: UMNR Book Round trip and rebook outbound and inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
-	
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
+		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
 		
+@Normal_User
 @Roundtrip
-@UMNR
 @Cancel
-Scenario Outline: UMNR Book Round trip and cancel only outbound segment
+Scenario Outline: Member Book Round trip and cancel only outbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -570,13 +584,12 @@ Scenario Outline: UMNR Book Round trip and cancel only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		
-	
+@Normal_User	
 @Roundtrip
-@UMNR
 @Cancel
-Scenario Outline: UMNR Book Round trip and cancel only inbound segment
+Scenario Outline: Member Book Round trip and cancel only inbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -607,12 +620,12 @@ Scenario Outline: UMNR Book Round trip and cancel only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		
+@Normal_User
 @Roundtrip
-@UMNR
 @Cancel
-Scenario Outline: UMNR Book Round trip and cancel booking
+Scenario Outline: Member Book Round trip and cancel booking
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -642,5 +655,5 @@ Scenario Outline: UMNR Book Round trip and cancel booking
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		
