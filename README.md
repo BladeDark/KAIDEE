@@ -10,7 +10,8 @@ This automation use selenium 3 and genearte report by using serenity
 - @Rebook (execute all rebook scenarios)
 - @B2B (execute all B2B scenarios)
 - @Normal_User
-- @MultiFlight
+- @Connected_Flight
+- @UMNR
 
 # Note
 If you want to ignore the tag, you can use this in the build properties:
@@ -20,12 +21,14 @@ cucumber.options=--tags ~@ignore
 1. Create normal user: normal_atm@worldticket.net/atm1234 and currency is USD
 2. Create corporate user: corporate_atm@worldticet and currency is USD
 3. Setting limit infant in airline to be: 999
-4. Setting Penalty on name change
-5. Setting penalty on rebook
-6. Setting KRP-CPH route with available flight at least 3 months (count from today)
-7. Setting CPH-KRP route with available flight at least 3 months (count from today)
-8. Setting KRP-RNN route with available flight at least 3 months (count from today)
-9. Setting RNN-KRP route with available flight at least 3 months (count from today)
-10. Setting package bundle at least 1
-11. Setting normal package at least 1
-12. Setting extra at least 1
+4. Setting limit UMNR in airline to be: 999
+5. Setting Penalty on name change
+6. Setting penalty on rebook
+7. Setting KRP-CPH route with available flight at least 3 months (count from today)
+8. Setting CPH-KRP route with available flight at least 3 months (count from today)
+9. Setting KRP-RNN route with available flight at least 3 months (count from today)
+10. Setting RNN-KRP route with available flight at least 3 months (count from today)
+11. Setting package bundle at least 1
+12. Setting normal package at least 1
+13. Setting extra at least 1
+14. Setting enabled UMNR
