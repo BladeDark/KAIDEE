@@ -3,7 +3,6 @@ Feature: Verify ECOM for missellaneous scenarios
 Background: 
 	Given I am on world ticket website
 
-@Test
 @etc
 Scenario Outline: Login with rloc/lastname 
 	When I select "<TravelType>" for travel type 

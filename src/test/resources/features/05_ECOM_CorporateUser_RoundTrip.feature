@@ -1,4 +1,4 @@
-Feature: Verify ECOM booking flow for round trip
+Feature: Verify ECOM booking flow for corporate user
 As a Coporate User
 They want to book flight on ECOM
 so that They can book the flight successfully

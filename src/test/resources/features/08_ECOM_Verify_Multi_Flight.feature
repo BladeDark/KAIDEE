@@ -1,4 +1,4 @@
-Feature: Verify ECOM booking flow for connected flight
+Feature: Verify ECOM booking flow for Multi flight
 As a Member
 They want to book flight on ECOM
 so that They can book the flight successfully
@@ -6,11 +6,12 @@ so that They can book the flight successfully
 Background: 
 	Given I am on world ticket website 
 	And I login normal user successfully
-
-@Connected_Flight
+	
+@Test
+@Multi_Flight
 @Normal_User
 @Roundtrip
-Scenario Outline: Member Book Return in connected flight
+Scenario Outline: Member Book Return for multi flight
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -37,16 +38,16 @@ Scenario Outline: Member Book Return in connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		0		|		0		|		CASH					|
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
+		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		0		|		0		|		CASH					|
+		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
+		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
+		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
 		
 		
-@Connected_Flight
+@Multi_Flight
 @Roundtrip
 @UMNR
-Scenario Outline: UMNR Book Return in connected flight
+Scenario Outline: UMNR Book Return for multi flight
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -73,4 +74,4 @@ Scenario Outline: UMNR Book Return in connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		AAL      	|			RNN 	    	|     	0 	  |  		3		|		0		|		CASH					|

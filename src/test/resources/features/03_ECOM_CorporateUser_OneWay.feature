@@ -1,4 +1,4 @@
-Feature: Verify ECOM booking flow for one way
+Feature: Verify ECOM booking flow for corporate user with one way
 As a Corporate user
 They want to book flight with one way on ECOM
 so that They can book the flight successfully
