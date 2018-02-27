@@ -4,10 +4,9 @@ They want to book flight on ECOM
 so that They can book the flight successfully
 
 Background: 
-	Given I am on world ticket website 
+	Given I am on world ticket website
 	And I login normal user successfully
 	
-@Test
 @Multi_Flight
 @Normal_User
 @Roundtrip
@@ -42,7 +41,6 @@ Scenario Outline: Member Book Return for multi flight
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
-		
 		
 @Multi_Flight
 @Roundtrip

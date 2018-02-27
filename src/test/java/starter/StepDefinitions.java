@@ -40,10 +40,6 @@ public class StepDefinitions extends PageObject {
 	private static Extras_Page Extras_Page;
 	private static LogIn_Page LogIn_Page;
 	private static Manage_Booking_Page Manage_Booking_Page;
-	
-	
-	
-	
 
 	// ---------- Landing Page----------
 	@Given("I am on world ticket website")
@@ -110,12 +106,12 @@ public class StepDefinitions extends PageObject {
 		Landing_Page.clickNext_ReturnDate();
 		Landing_Page.select_Available_Return_Date();
 	}
-	
-		@When("^I select available return date for change date$")
-		public void i_select_available_return_date_for_change_date() throws Throwable {
-			// Write code here that turns the phrase above into concrete actions
-			Landing_Page.select_Available_Return_Date();
-		}
+
+	@When("^I select available return date for change date$")
+	public void i_select_available_return_date_for_change_date() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		Landing_Page.select_Available_Return_Date();
+	}
 
 	@When("^I select \"([^\"]*)\" for travel type$")
 	public void i_select_for_travel_type(String input) throws Throwable {
@@ -402,7 +398,7 @@ public class StepDefinitions extends PageObject {
 
 			String Grand_Total = Checkout_Page.get_Grand_Total();
 			String Get_Total = Booking_Summary.get_Total();
-			
+
 			Checkout_Page.get_chk_fare(Grand_Total);
 			Checkout_Page.get_sum_fare(Get_Total);
 			Assert.assertTrue(Grand_Total.contains(Get_Total));
@@ -638,13 +634,6 @@ public class StepDefinitions extends PageObject {
 		LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
 		LogIn_Page.set_LastName(Passenger_Page.lastname);
 	}
-	
-	@Then("^I click logout$")
-	public void i_click_logout() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-	Landing_Page.click_logout();
-	}
-
 	@Then("^I click Login button on login page for Record Locator$")
 	public void i_click_Login_button_on_login_page() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
@@ -655,6 +644,8 @@ public class StepDefinitions extends PageObject {
 	public void i_login_successfully() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 
+		System.out.print(Landing_Page.is_Corporate_login());
+		
 		if (!Landing_Page.is_Member_Login()) {
 			Landing_Page.click_Account();
 			LogIn_Page.set_Email("normal_atm@worldticket.net");
@@ -663,10 +654,18 @@ public class StepDefinitions extends PageObject {
 			Landing_Page.click_Home_Menu();
 			Assert.assertTrue(Landing_Page.is_Member_Login());
 
+		} else if (Landing_Page.is_Corporate_login()) {
+			Landing_Page.click_logOut();
+			Landing_Page.click_Account();
+			LogIn_Page.set_Email("normal_atm@worldticket.net");
+			LogIn_Page.set_Password("atm1234");
+			LogIn_Page.click_LogIn_for_User();
+			Landing_Page.click_Home_Menu();
+			Assert.assertTrue(Landing_Page.is_Member_Login());
 		}
 
 	}
-	
+
 	@Given("^I Login with rloc and lastname$")
 	public void i_login_with_rloc_and_lastname() {
 		if (!Landing_Page.is_Member_Login()) {
@@ -682,6 +681,9 @@ public class StepDefinitions extends PageObject {
 	public void i_login_corporate_successfully() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 
+		
+		System.out.print(Landing_Page.is_Corporate_login());
+		
 		if (!Landing_Page.is_Member_Login()) {
 			Landing_Page.click_Account();
 			LogIn_Page.set_Email("corporate_atm@worldticket.net");
@@ -690,6 +692,14 @@ public class StepDefinitions extends PageObject {
 			Landing_Page.click_Home_Menu();
 			Assert.assertTrue(Landing_Page.is_Member_Login());
 
+		} else if (!Landing_Page.is_Corporate_login()) {
+			Landing_Page.click_logOut();
+			Landing_Page.click_Account();
+			LogIn_Page.set_Email("corporate_atm@worldticket.net");
+			LogIn_Page.set_Password("atm1234");
+			LogIn_Page.click_LogIn_for_User();
+			Landing_Page.click_Home_Menu();
+			Assert.assertTrue(Landing_Page.is_Member_Login());
 		}
 
 	}
@@ -715,12 +725,12 @@ public class StepDefinitions extends PageObject {
 	public void i_click_on_change_name_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Change_Name();
 	}
-	
+
 	@Then("^I click on cancel flight on Manage Booking Page$")
 	public void i_click_on_cancel_flight_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Cancel_Flight();
 	}
-	
+
 	@Then("^I click on cancel booking on Manage Booking Page$")
 	public void i_click_on_cancel_booking_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Cancel_Booking();
@@ -734,14 +744,14 @@ public class StepDefinitions extends PageObject {
 	@Then("^I select all passenger on change name form$")
 	public void i_select_all_passenger() {
 		Manage_Booking_Page.select_All_Passengers_on_ch_form();
-		
+
 		Manage_Booking_Page.click_Yes_On_Changename_form();
 	}
-	
+
 	@Then("^I select one passenger on change name form$")
 	public void i_select_one_passenger() {
 		Manage_Booking_Page.select_one_Passengers_on_ch_form();
-		
+
 		Manage_Booking_Page.click_Yes_On_Changename_form();
 	}
 
@@ -774,23 +784,23 @@ public class StepDefinitions extends PageObject {
 	public void i_click_return_date_on_booking_form() {
 		Flights_Page.click_Return();
 	}
-	
+
 	@Then("^I click cancel outbound flight on cancelled form$")
 	public void i_click_outbound_on_cancel_form() {
 		Manage_Booking_Page.click_cancel_outbound();
 	}
-	
+
 	@Then("^I click cancel inbound flight on cancelled form$")
 	public void i_click_inbound_form_on_cancel_form() {
 		Manage_Booking_Page.click_cancel_inbound();
 	}
-	
+
 	@Then("^I click Yes on cancelled flight form$")
 	public void i_click_yes_on_cancell_flight_form() {
 		Manage_Booking_Page.click_Yes_on_Cancellation_Flight();
 		Assert.assertTrue(Manage_Booking_Page.check_success_cancel());
 	}
-	
+
 	@Then("^I click Yes on cancelled booking form$")
 	public void i_click_yes_on_cancell_booking_form() {
 		Manage_Booking_Page.click_Yes_on_Cancellation_Booking();
@@ -800,9 +810,7 @@ public class StepDefinitions extends PageObject {
 	@Then("^I click search button on change date$")
 	public void i_click_search_button_on_change_date() {
 		Flights_Page.click_Search();
-		
+
 	}
-	
-	
 
 }

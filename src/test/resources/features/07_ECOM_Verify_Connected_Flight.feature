@@ -6,7 +6,8 @@ so that They can book the flight successfully
 Background: 
 	Given I am on world ticket website 
 	And I login normal user successfully
-
+	
+@Test
 @Connected_Flight
 @Normal_User
 @Roundtrip
@@ -42,7 +43,8 @@ Scenario Outline: Member Book Return in connected flight
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
 		
-		
+
+
 @Connected_Flight
 @Roundtrip
 @UMNR
