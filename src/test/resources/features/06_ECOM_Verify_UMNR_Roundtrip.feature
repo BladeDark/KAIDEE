@@ -537,7 +537,7 @@ Scenario Outline: UMNR Book Round trip and rebook outbound and inbound segment
 		
 @Roundtrip
 @UMNR
-@Cancel
+@Cancel_Segment
 Scenario Outline: UMNR Book Round trip and cancel only outbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
@@ -574,7 +574,7 @@ Scenario Outline: UMNR Book Round trip and cancel only outbound segment
 	
 @Roundtrip
 @UMNR
-@Cancel
+@Cancel_Segment
 Scenario Outline: UMNR Book Round trip and cancel only inbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
@@ -610,7 +610,7 @@ Scenario Outline: UMNR Book Round trip and cancel only inbound segment
 		
 @Roundtrip
 @UMNR
-@Cancel
+@Cancel_Booking
 Scenario Outline: UMNR Book Round trip and cancel booking
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 

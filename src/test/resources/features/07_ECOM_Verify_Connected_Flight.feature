@@ -7,7 +7,6 @@ Background:
 	Given I am on world ticket website 
 	And I login normal user successfully
 	
-@Test
 @Connected_Flight
 @Normal_User
 @Roundtrip

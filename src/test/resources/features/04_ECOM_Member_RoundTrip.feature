@@ -552,7 +552,7 @@ Scenario Outline: Member Book Round trip and rebook outbound and inbound segment
 		
 @Normal_User
 @Roundtrip
-@Cancel
+@Cancel_Segment
 Scenario Outline: Member Book Round trip and cancel only outbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
@@ -588,7 +588,7 @@ Scenario Outline: Member Book Round trip and cancel only outbound segment
 		
 @Normal_User	
 @Roundtrip
-@Cancel
+@Cancel_Segment
 Scenario Outline: Member Book Round trip and cancel only inbound segment
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
@@ -624,7 +624,7 @@ Scenario Outline: Member Book Round trip and cancel only inbound segment
 		
 @Normal_User
 @Roundtrip
-@Cancel
+@Cancel_Booking
 Scenario Outline: Member Book Round trip and cancel booking
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 

@@ -3,6 +3,7 @@ Feature: Verify ECOM for missellaneous scenarios
 Background: 
 	Given I am on world ticket website
 
+@Test
 @etc
 Scenario Outline: Login with rloc/lastname 
 	When I select "<TravelType>" for travel type 
@@ -29,7 +30,6 @@ Scenario Outline: Login with rloc/lastname
 	And I pay with "<Payment_Method>" payment and check agreement 
 	Then I check booking is successful 
 	And I Login with rloc and lastname
-	Then I click logout
 	
 	
 	
