@@ -163,7 +163,8 @@ public class Passenger_Page extends PageObject {
 	}
 	public void click_Continue_AddOns() {
 		WebElementFacade element = find(By.xpath(".//*[@id='form-flights']/a[2]"));
-		element.click();
+		method.jsClick(element, getDriver());
+		//element.click();
 	}
 	
 	

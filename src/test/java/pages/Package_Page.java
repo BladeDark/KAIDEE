@@ -38,30 +38,41 @@ public class Package_Page extends PageObject {
 	}
 	
 	
-	public void select_One_PK_Item_outbound(){
+	public void select_One_PK_Item_Route_1(){
 		Random Dice = new Random(); 
-		List<WebElementFacade> element = findAll(".//*[@id='from-packages']/div/ul/li/input[not(@disabled)]");
+		List<WebElementFacade> element = findAll(".//*[@id='package-0']/div/ul/li/input[not(@disabled)]");
 		int n = Dice.nextInt(element.size());
-		//element.get(n).waitUntilVisible();
-		//element.get(n).click();
-		
 		method.jsClick(element.get(n), getDriver());
 		this.is_Package_Select = true;
 		//method.jsClick(element.get(n), getDriver());
 		
 	}
 	
-	public void select_One_PK_Item_inbound(){
+	public void select_One_PK_Item_Route_2(){
 		Random Dice = new Random(); 
-		List<WebElementFacade> element = findAll(".//*[@id='to-packages']/div/ul/li/input[not(@disabled)]");
+		List<WebElementFacade> element = findAll(".//*[@id='package-1']/div/ul/li/input[not(@disabled)]");
 		int n = Dice.nextInt(element.size());
 		//element.get(n).waitUntilVisible();
 		//element.get(n).click();
 		method.jsClick(element.get(n), getDriver());
 		this.is_Package_Select = true;
 		//method.jsClick(element.get(n), getDriver());
-		
-		
+	}
+	
+	public void select_One_PK_Item_Route_3(){
+		Random Dice = new Random(); 
+		List<WebElementFacade> element = findAll(".//*[@id='package-2']/div/ul/li/input[not(@disabled)]");
+		int n = Dice.nextInt(element.size());	
+		method.jsClick(element.get(n), getDriver());
+		this.is_Package_Select = true;	
+	}
+	
+	public void select_One_PK_Item_Route_4(){
+		Random Dice = new Random(); 
+		List<WebElementFacade> element = findAll(".//*[@id='package-3']/div/ul/li/input[not(@disabled)]");
+		int n = Dice.nextInt(element.size());
+		method.jsClick(element.get(n), getDriver());
+		this.is_Package_Select = true;		
 	}
 	
 	
@@ -72,12 +83,15 @@ public class Package_Page extends PageObject {
 		
 		
 		if (is_Package_Select){
-			WebElementFacade element = find(By.xpath(".//*[@id='form-flights']/a[4]"));
-			element.click();
+			WebElementFacade element = find(By.xpath(".//*[@id='form-flights']/a[4]/span/span"));
+			element.waitUntilVisible();
+			method.jsClick(element, getDriver());
+			
 			this.is_Package_Select = false;
 		}else if (!is_Package_Select){
-			WebElementFacade element = find(By.xpath(".//*[@id='form-flights']/a[4]"));
-			element.click();
+			WebElementFacade element = find(By.xpath(".//*[@id='form-flights']/a[4]/span/span"));
+			element.waitUntilVisible();
+			method.jsClick(element, getDriver());
 			/*WebElementFacade btn_continue = find(By.xpath("//div[@id='remind-packages']/div[2]/div/div[2]/form/div[2]/div/button[2]"));
 			btn_continue.waitUntilVisible();
 			btn_continue.click();*/
@@ -98,13 +112,29 @@ public class Package_Page extends PageObject {
 	}
 	
 	
-	public void click_Inbound_Tab(){
-		WebElementFacade element = find(By.xpath(".//*[@id='top-flight-switcher']/ul/li[2]/a[@aria-controls='to-packages']"));
+	public void click_Route_Tab_1(){
+		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-0']"));
 		element.waitUntilVisible();
 		element.click();
 	}
 	
+	public void click_Route_Tab_2(){
+		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-1']"));
+		element.waitUntilVisible();
+		element.click();
+	}
 	
+	public void click_Route_Tab_3(){
+		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-2']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	public void click_Route_Tab_4(){
+		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-3']"));
+		element.waitUntilVisible();
+		element.click();
+	}
 	
 
 }

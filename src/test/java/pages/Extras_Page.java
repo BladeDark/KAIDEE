@@ -2,6 +2,7 @@ package pages;
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 
@@ -32,44 +33,133 @@ public class Extras_Page extends PageObject {
 		}
 	}
 
-	public void select_One_Extras_Item_outbound() {
+
+
+	public void select_One_Extras_Item_For_Route_1() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+
+		Random Dice = new Random();
+		List<WebElementFacade> element = findAll(
+				"//div[@id='extra-0']/div/div/div[1]/div[2]/div/ul/li[not(contains(@class,'deactivated-item'))]/div[3]/div[2]");
+		int n = Dice.nextInt(element.size());
+
+		if (element.get(n).isVisible()) {
+			element.get(n).waitUntilVisible();
+			element.get(n).click();
+		} else {
+			WebElementFacade expand = find(By.xpath("//div[@id='extra-0']/div/div/div[1]/div[1]"));
+			expand.click();
+			System.out.println(element.size());
+			element.get(n).waitUntilVisible();
+			method.jsClick(element.get(n), getDriver());
+		}
 		
-		
-		List<WebElementFacade> element= findAll("//div[@id='from-extras']//div[@style='visibility: visible;']/div[@class='inc button btn-checkout']");
-		
-		element.get(0).waitUntilVisible();
-		element.get(0).click();
-		// method.jsClick(element_click, getDriver());
+		resetImplicitTimeout();
+
 	}
 
-	public void select_One_Extras_Item_inbound() {
-		
-		List<WebElementFacade> element = findAll("//div[@id='to-extras']//div[@style='visibility: visible;']/div[@class='inc button btn-checkout']");
-		element.get(0).waitUntilVisible();
-		element.get(0).click();
-		
-		// method.jsClick(element_click, getDriver());
+	public void select_One_Extras_Item_For_Route_2() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
 
-	
+		Random Dice = new Random();
+		List<WebElementFacade> element = findAll(
+				"//div[@id='extra-1']/div/div/div[1]/div[2]/div/ul/li[not(contains(@class,'deactivated-item'))]/div[3]/div[2]");
+		int n = Dice.nextInt(element.size());
+		
+		if (element.get(n).isVisible()) {
+			element.get(n).waitUntilVisible();
+			element.get(n).click();
+		} else {
+			WebElementFacade expand = find(By.xpath("//div[@id='extra-1']/div/div/div[1]/div[1]"));
+			expand.click();
+			System.out.println(element.size());
+			element.get(n).waitUntilVisible();
+			method.jsClick(element.get(n), getDriver());
+		}
+
+		resetImplicitTimeout();
+
 	}
 
-	public void click_Inbound_Tab() {
-		WebElementFacade element = find(
-				By.xpath(".//*[@id='top-flight-switcher']/ul/li[2]/a[@aria-controls='to-extras']"));
+	public void select_One_Extras_Item_For_Route_3() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+		Random Dice = new Random();
+		List<WebElementFacade> element = findAll(
+				"//div[@id='extra-2']/div/div/div[1]/div[2]/div/ul/li[not(contains(@class,'deactivated-item'))]/div[3]/div[2]");
+		int n = Dice.nextInt(element.size());
+		
+		if (element.get(n).isVisible()) {
+			element.get(n).waitUntilVisible();
+			element.get(n).click();
+		} else {
+			WebElementFacade expand = find(By.xpath("//div[@id='extra-2']/div/div/div[1]/div[1]"));
+			expand.click();
+			System.out.println(element.size());
+			element.get(n).waitUntilVisible();
+			method.jsClick(element.get(n), getDriver());
+		}
+
+		resetImplicitTimeout();
+
+		
+	}
+
+	public void select_One_Extras_Item_For_Route_4() {
+		setImplicitTimeout(5, TimeUnit.SECONDS);
+		Random Dice = new Random();
+		List<WebElementFacade> element = findAll(
+				"//div[@id='extra-3']/div/div/div[1]/div[2]/div/ul/li[not(contains(@class,'deactivated-item'))]/div[3]/div[2]");
+		int n = Dice.nextInt(element.size());
+		
+		if (element.get(n).isVisible()) {
+			element.get(n).waitUntilVisible();
+			element.get(n).click();
+		} else {
+			WebElementFacade expand = find(By.xpath("//div[@id='extra-3']/div/div/div[1]/div[1]"));
+			expand.click();
+			System.out.println(element.size());
+			element.get(n).waitUntilVisible();
+			method.jsClick(element.get(n), getDriver());
+		}
+
+		resetImplicitTimeout();
+		
+	}
+
+	public void click_Route_Tab_1() {
+		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-0']"));
 		element.waitUntilVisible();
 		element.click();
 	}
-	
+
+	public void click_Route_Tab_2() {
+		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-1']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void click_Route_Tab_3() {
+		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-2']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void click_Route_Tab_4() {
+		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-3']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
 	public void click_Go_directly_to_Payment() {
 		WebElementFacade element = find(By.id("continue-checkout"));
 		element.click();
-		
+
 	}
-	
+
 	public void click_Continue() {
 		WebElementFacade element = find(By.id("continue"));
 		element.click();
-		
+
 	}
 
 }

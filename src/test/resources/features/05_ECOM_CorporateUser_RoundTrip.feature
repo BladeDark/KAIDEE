@@ -60,9 +60,9 @@ Scenario Outline: Corporate Book Return with package
 	And I click continue on passenger page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
-	And I change to Inbound tab for package
-	And I select one of all packages for inbound
+	And I select one of all packages for first route
+	And I change to second route tab on package
+	And I select one of all packages for second route
 	And I click Go directly to payment on package page
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -99,9 +99,9 @@ Scenario Outline: Corporate Book Return with extra
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
-	And I change to Inbound tab for extras
-	And I select one of all extras for inbound 
+	And I select one of all extras for first route
+	And I change to second route tab on extras
+	And I select one of all extras for second route 
 	And I click Go directly to payment on extras page
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -138,15 +138,15 @@ Scenario Outline: Corporate Book Return with package and extra
 	And I click continue on passenger page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
-	And I change to Inbound tab for package
-	And I select one of all packages for inbound
+	And I select one of all packages for first route
+	And I change to second route tab on package
+	And I select one of all packages for second route
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
-	And I change to Inbound tab for extras
-	And I select one of all extras for inbound
+	And I select one of all extras for first route
+	And I change to second route tab on extras
+	And I select one of all extras for second route
 	And I click Go directly to payment on extras page
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -189,9 +189,9 @@ Scenario Outline: Corporate Book Return and buy package after
 	And I click on buy extras on Manage Booking Page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
-	And I change to Inbound tab for package
-	And I select one of all packages for inbound
+	And I select one of all packages for first route
+	And I change to second route tab on package
+	And I select one of all packages for second route
 	And I click Go directly to payment on package page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature 
@@ -235,9 +235,9 @@ Scenario Outline: Corporate Book Return and buy extras after
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
-	And I change to Inbound tab for extras
-	And I select one of all extras for inbound 
+	And I select one of all extras for first route
+	And I change to second route tab on extras
+	And I select one of all extras for second route 
 	And I click Continue on extras page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature 
@@ -281,15 +281,15 @@ Scenario Outline: Corporate Book Return and buy package and extras after
 	And I click on buy extras on Manage Booking Page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
-	And I change to Inbound tab for package
-	And I select one of all packages for inbound
+	And I select one of all packages for first route
+	And I change to second route tab on package
+	And I select one of all packages for second route
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
-	And I change to Inbound tab for extras
-	And I select one of all extras for inbound
+	And I select one of all extras for first route
+	And I change to second route tab on extras
+	And I select one of all extras for second route
 	And I click Continue on extras page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature 

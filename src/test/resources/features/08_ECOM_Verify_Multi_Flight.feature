@@ -8,7 +8,6 @@ Background:
 	And I login normal user successfully
 	
 @Multi_Flight
-@Normal_User
 @Roundtrip
 Scenario Outline: Member Book Return for multi flight
 	When I select "<TravelType>" for travel type 
@@ -39,13 +38,12 @@ Scenario Outline: Member Book Return for multi flight
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		0		|		0		|		CASH					|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
-		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
+		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 		
 @Multi_Flight
 @Roundtrip
 @UMNR
-Scenario Outline: UMNR Book Return for multi flight
+Scenario Outline: UMNR Book Return for multi flight 
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 

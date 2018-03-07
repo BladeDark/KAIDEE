@@ -59,7 +59,7 @@ Scenario Outline: Corporate Book one way with package
 	And I click continue on passenger page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
+	And I select one of all packages for first route
 	And I click Go directly to payment on package page
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -94,7 +94,7 @@ Scenario Outline: Corporate Book one way with extras
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
+	And I select one of all extras for first route
 	And I click Go directly to payment on extras page
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -128,11 +128,11 @@ Scenario Outline: Corporate Book one way with package and extras
 	And I click continue on passenger page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
+	And I select one of all packages for first route
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
+	And I select one of all extras for first route
 	And I click Go directly to payment on extras page 
 	Then I am on Check out page 
 	And I check information on Check out page 
@@ -173,7 +173,7 @@ Scenario Outline: Corporate Book One way and buy package after
 	And I click on buy extras on Manage Booking Page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
+	And I select one of all packages for first route
 	And I click Go directly to payment on package page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature
@@ -216,7 +216,7 @@ Scenario Outline: Corporate Book One way and buy extras after
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
+	And I select one of all extras for first route
 	And I click Continue on extras page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature 
@@ -258,11 +258,11 @@ Scenario Outline: Corporate Book One way and buy package and extras after
 	And I click on buy extras on Manage Booking Page
 	Then I am on Package page
 	And I select all passenger on package
-	And I select one of all packages for outbound
+	And I select one of all packages for first route
 	And I click continue on package page
 	And I am on extras page
 	And I select all passenger on extras
-	And I select one of all extras for outbound
+	And I select one of all extras for first route
 	And I click Continue on extras page
 	Then I am on Check out page
 	And I check information on Check out page on additional feature 

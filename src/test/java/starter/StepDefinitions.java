@@ -559,26 +559,69 @@ public class StepDefinitions extends PageObject {
 
 	}
 
-	@Then("^I change to Inbound tab for package$")
-	public void i_change_to_inbound_tab_package() throws Throwable {
+	@Then("^I change to first route tab on package$")
+	public void i_change_to_first_route_tab_on_package() throws Throwable {
 
-		Package_Page.click_Inbound_Tab();
+		Package_Page.click_Route_Tab_1();
+	}
+	
+	@Then("^I change to second route tab on package$")
+	public void i_change_to_second_route_tab_on_package() throws Throwable {
+
+		Package_Page.click_Route_Tab_2();
+	}
+	
+	@Then("^I change to third route tab on package$")
+	public void i_change_to_third_route_tab_on_package() throws Throwable {
+
+		Package_Page.click_Route_Tab_3();
+	}
+	
+	@Then("^I change to fourth route tab on package$")
+	public void i_change_to_fourth_route_tab_on_package() throws Throwable {
+
+		Package_Page.click_Route_Tab_4();
 	}
 
-	@Then("^I change to Inbound tab for extras$")
-	public void i_change_to_inbound_tab_extras() throws Throwable {
+	@Then("^I change to first route tab on extras$")
+	public void i_change_to_first_route_tab_on_extras() throws Throwable {
+		Extras_Page.click_Route_Tab_1();
+	}
+	
+	@Then("^I change to second route tab on extras$")
+	public void i_change_to_second_route_tab_on_extras() throws Throwable {
+		Extras_Page.click_Route_Tab_2();
+	}
+	
+	@Then("^I change to third route tab on extras$")
+	public void i_change_to_third_route_tab_on_extras() throws Throwable {
+		Extras_Page.click_Route_Tab_3();
+	}
+	
+	@Then("^I change to fourth route tab on extras$")
+	public void i_change_to_fourth_route_tab_on_extras() throws Throwable {
+		Extras_Page.click_Route_Tab_4();
+	}
+	
 
-		Extras_Page.click_Inbound_Tab();
+	@Then("^I select one of all packages for first route$")
+	public void i_select_one_of_all_packages_for_1_route() throws Throwable {
+		Package_Page.select_One_PK_Item_Route_1();
 	}
 
-	@Then("^I select one of all packages for outbound$")
-	public void i_select_one_of_all_packages_outbound() throws Throwable {
-		Package_Page.select_One_PK_Item_outbound();
+	@Then("^I select one of all packages for second route$")
+	public void i_select_one_of_all_packages_for_2_route() throws Throwable {
+		Package_Page.select_One_PK_Item_Route_2();
 	}
-
-	@Then("^I select one of all packages for inbound$")
-	public void i_select_one_of_all_packages_inbound() throws Throwable {
-		Package_Page.select_One_PK_Item_inbound();
+	
+	@Then("^I select one of all packages for third route$")
+	public void i_select_one_of_all_packages_for_3_route() throws Throwable {
+		Package_Page.select_One_PK_Item_Route_3();
+	}
+	
+	@Then("^I select one of all packages for fourth route$")
+	public void i_select_one_of_all_packages_for_4_route() throws Throwable {
+		Package_Page.select_One_PK_Item_Route_4();
 	}
 
 	@Then("^I click continue on package page$")
@@ -617,16 +660,27 @@ public class StepDefinitions extends PageObject {
 
 		Extras_Page.select_CheckBox_All_Passengers();
 	}
-
-	@Then("^I select one of all extras for inbound$")
-	public void i_select_one_of_all_extras_inbound() throws Throwable {
-		Extras_Page.select_One_Extras_Item_inbound();
+	@Then("^I select one of all extras for first route$")
+	public void i_select_one_of_all_extras_for_route_1() throws Throwable {
+		Extras_Page.select_One_Extras_Item_For_Route_1();
 	}
 
-	@Then("^I select one of all extras for outbound$")
-	public void i_select_one_of_all_extras_outbound() throws Throwable {
-		Extras_Page.select_One_Extras_Item_outbound();
+	@Then("^I select one of all extras for second route$")
+	public void i_select_one_of_all_extras_for_route_2() throws Throwable {
+		Extras_Page.select_One_Extras_Item_For_Route_2();
 	}
+	
+	@Then("^I select one of all extras for third route$")
+	public void i_select_one_of_all_extras_for_route_3() throws Throwable {
+		Extras_Page.select_One_Extras_Item_For_Route_3();
+	}
+	
+	@Then("^I select one of all extras for fourth route$")
+	public void i_select_one_of_all_extras_for_route_4() throws Throwable {
+		Extras_Page.select_One_Extras_Item_For_Route_4();
+	}
+
+	
 
 	@Then("^I fill Record Locator and Last name$")
 	public void i_fill_Record_Locator_and_Last_name() throws Throwable {
