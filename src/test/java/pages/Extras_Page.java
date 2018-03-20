@@ -72,7 +72,6 @@ public class Extras_Page extends PageObject {
 		} else {
 			WebElementFacade expand = find(By.xpath("//div[@id='extra-1']/div/div/div[1]/div[1]"));
 			expand.click();
-			System.out.println(element.size());
 			element.get(n).waitUntilVisible();
 			method.jsClick(element.get(n), getDriver());
 		}
@@ -127,25 +126,25 @@ public class Extras_Page extends PageObject {
 	}
 
 	public void click_Route_Tab_1() {
-		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-0']"));
-		element.waitUntilVisible();
-		element.click();
-	}
-
-	public void click_Route_Tab_2() {
 		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-1']"));
 		element.waitUntilVisible();
 		element.click();
 	}
 
-	public void click_Route_Tab_3() {
+	public void click_Route_Tab_2() {
 		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-2']"));
 		element.waitUntilVisible();
 		element.click();
 	}
 
-	public void click_Route_Tab_4() {
+	public void click_Route_Tab_3() {
 		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-3']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void click_Route_Tab_4() {
+		WebElementFacade element = find(By.xpath("//a[@aria-controls='extra-4']"));
 		element.waitUntilVisible();
 		element.click();
 	}

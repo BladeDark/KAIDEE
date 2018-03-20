@@ -113,25 +113,25 @@ public class Package_Page extends PageObject {
 	
 	
 	public void click_Route_Tab_1(){
-		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-0']"));
-		element.waitUntilVisible();
-		element.click();
-	}
-	
-	public void click_Route_Tab_2(){
 		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-1']"));
 		element.waitUntilVisible();
 		element.click();
 	}
 	
-	public void click_Route_Tab_3(){
+	public void click_Route_Tab_2(){
 		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-2']"));
 		element.waitUntilVisible();
 		element.click();
 	}
 	
-	public void click_Route_Tab_4(){
+	public void click_Route_Tab_3(){
 		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-3']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	public void click_Route_Tab_4(){
+		WebElementFacade element = find(By.xpath(".//a[@aria-controls='package-4']"));
 		element.waitUntilVisible();
 		element.click();
 	}
