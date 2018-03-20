@@ -381,47 +381,56 @@ public class StepDefinitions extends PageObject {
 
 	@Then("^I check information on Check out page on additional feature$")
 	public void i_check_information_on_additional_feature() throws Throwable {
-		String Get_Total = Booking_Summary.get_Total();
-
-		Checkout_Page.get_sum_fare(Get_Total);
+		if (Landing_Page.theme.equalsIgnoreCase("NORMAL")) {
+			String Get_Total = Booking_Summary.get_Total();
+			Checkout_Page.get_sum_fare(Get_Total);
+		}else{
+			
+		}
+		
 	}
 
 	@Then("^I check information on Check out page$")
 	public void i_check_information_on_Check_out_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
 
-		if (TravelType.equalsIgnoreCase("OneWay")) {
+		if (Landing_Page.theme.equalsIgnoreCase("NORMAL")) {
+			if (TravelType.equalsIgnoreCase("OneWay")) {
 
-			/*booking summary outbound
-			this.booking_summary_check_outbound();
-			*/
+				// check total amount
+				String Grand_Total = Checkout_Page.get_Grand_Total();
+				String Get_Total = Booking_Summary.get_Total();
+
+				Checkout_Page.get_chk_fare(Grand_Total);
+				Checkout_Page.get_sum_fare(Get_Total);
+				Assert.assertTrue(Grand_Total.contains(Get_Total));
+
+			} else if (TravelType.equalsIgnoreCase("Return")) {
+
+				// check total amount
+				String Grand_Total = Checkout_Page.get_Grand_Total();
+				String Get_Total = Booking_Summary.get_Total();
+				Checkout_Page.get_chk_fare(Grand_Total);
+				Checkout_Page.get_sum_fare(Get_Total);
+				Assert.assertTrue(Grand_Total.contains(Get_Total));
+
+			}
+		} else {
+			if (TravelType.equalsIgnoreCase("OneWay")) {
+
+				// check total amount
+				String Grand_Total = Checkout_Page.get_Grand_Total();
+	
+
+				Checkout_Page.get_chk_fare(Grand_Total);
+
+			} else if (TravelType.equalsIgnoreCase("Return")) {
+
+				// check total amount
+				String Grand_Total = Checkout_Page.get_Grand_Total();	
+				Checkout_Page.get_chk_fare(Grand_Total);
 			
-			
-			//check total amount
-			String Grand_Total = Checkout_Page.get_Grand_Total();
-			//String Get_Total = Booking_Summary.get_Total();
 
-			Checkout_Page.get_chk_fare(Grand_Total);
-			//Checkout_Page.get_sum_fare(Get_Total);
-			//Assert.assertTrue(Grand_Total.contains(Get_Total));
-
-		} else if (TravelType.equalsIgnoreCase("Return")) {
-
-			/*booking Summary outbound
-			this.booking_summary_check_outbound();
-			*/
-			
-			/*booking Summary inbound
-			 this.booking_summary_check_inbound();
-			*/
-			
-			// check total amount
-			String Grand_Total = Checkout_Page.get_Grand_Total();
-			//String Get_Total = Booking_Summary.get_Total();
-			Checkout_Page.get_chk_fare(Grand_Total);
-			//Checkout_Page.get_sum_fare(Get_Total);
-			//Assert.assertTrue(Grand_Total.contains(Get_Total));
-		
+			}
 		}
 
 	}
@@ -567,19 +576,19 @@ public class StepDefinitions extends PageObject {
 
 		Package_Page.click_Route_Tab_1();
 	}
-	
+
 	@Then("^I change to second route tab on package$")
 	public void i_change_to_second_route_tab_on_package() throws Throwable {
 
 		Package_Page.click_Route_Tab_2();
 	}
-	
+
 	@Then("^I change to third route tab on package$")
 	public void i_change_to_third_route_tab_on_package() throws Throwable {
 
 		Package_Page.click_Route_Tab_3();
 	}
-	
+
 	@Then("^I change to fourth route tab on package$")
 	public void i_change_to_fourth_route_tab_on_package() throws Throwable {
 
@@ -590,22 +599,21 @@ public class StepDefinitions extends PageObject {
 	public void i_change_to_first_route_tab_on_extras() throws Throwable {
 		Extras_Page.click_Route_Tab_1();
 	}
-	
+
 	@Then("^I change to second route tab on extras$")
 	public void i_change_to_second_route_tab_on_extras() throws Throwable {
 		Extras_Page.click_Route_Tab_2();
 	}
-	
+
 	@Then("^I change to third route tab on extras$")
 	public void i_change_to_third_route_tab_on_extras() throws Throwable {
 		Extras_Page.click_Route_Tab_3();
 	}
-	
+
 	@Then("^I change to fourth route tab on extras$")
 	public void i_change_to_fourth_route_tab_on_extras() throws Throwable {
 		Extras_Page.click_Route_Tab_4();
 	}
-	
 
 	@Then("^I select one of all packages for first route$")
 	public void i_select_one_of_all_packages_for_1_route() throws Throwable {
@@ -616,12 +624,12 @@ public class StepDefinitions extends PageObject {
 	public void i_select_one_of_all_packages_for_2_route() throws Throwable {
 		Package_Page.select_One_PK_Item_Route_2();
 	}
-	
+
 	@Then("^I select one of all packages for third route$")
 	public void i_select_one_of_all_packages_for_3_route() throws Throwable {
 		Package_Page.select_One_PK_Item_Route_3();
 	}
-	
+
 	@Then("^I select one of all packages for fourth route$")
 	public void i_select_one_of_all_packages_for_4_route() throws Throwable {
 		Package_Page.select_One_PK_Item_Route_4();
@@ -663,6 +671,7 @@ public class StepDefinitions extends PageObject {
 
 		Extras_Page.select_CheckBox_All_Passengers();
 	}
+
 	@Then("^I select one of all extras for first route$")
 	public void i_select_one_of_all_extras_for_route_1() throws Throwable {
 		Extras_Page.select_One_Extras_Item_For_Route_1();
@@ -672,18 +681,16 @@ public class StepDefinitions extends PageObject {
 	public void i_select_one_of_all_extras_for_route_2() throws Throwable {
 		Extras_Page.select_One_Extras_Item_For_Route_2();
 	}
-	
+
 	@Then("^I select one of all extras for third route$")
 	public void i_select_one_of_all_extras_for_route_3() throws Throwable {
 		Extras_Page.select_One_Extras_Item_For_Route_3();
 	}
-	
+
 	@Then("^I select one of all extras for fourth route$")
 	public void i_select_one_of_all_extras_for_route_4() throws Throwable {
 		Extras_Page.select_One_Extras_Item_For_Route_4();
 	}
-
-	
 
 	@Then("^I fill Record Locator and Last name$")
 	public void i_fill_Record_Locator_and_Last_name() throws Throwable {
@@ -691,6 +698,7 @@ public class StepDefinitions extends PageObject {
 		LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
 		LogIn_Page.set_LastName(Passenger_Page.lastname);
 	}
+
 	@Then("^I click Login button on login page for Record Locator$")
 	public void i_click_Login_button_on_login_page() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
@@ -699,88 +707,91 @@ public class StepDefinitions extends PageObject {
 
 	@Given("^I login normal user successfully$")
 	public void i_login_successfully() throws Throwable {
-		
-		Landing_Page.click_LogIn();
-		LogIn_Page.click_login();
-		LogIn_Page.set_Email("normal_atm@worldticket.net");
-		LogIn_Page.set_Password("atm1234");
-		LogIn_Page.click_LogIn_for_User();
-		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
-		LogIn_Page.click_DAT_Img();
-	
-		/*
-		if (!Landing_Page.is_Member_Login()) {
-			Landing_Page.click_Account();
-			LogIn_Page.set_Email("normal_atm@worldticket.net");
-			LogIn_Page.set_Password("atm1234");
-			LogIn_Page.click_LogIn_for_User();
-			Landing_Page.click_Home_Menu();
-			Assert.assertTrue(Landing_Page.is_Member_Login());
 
-		} else if (Landing_Page.is_Corporate_login()) {
-			Landing_Page.click_logOut();
-			Landing_Page.click_Account();
+		if (Landing_Page.theme.equalsIgnoreCase("NORMAL")) {
+			if (!Landing_Page.is_Member_Login()) {
+				Landing_Page.click_Account();
+				LogIn_Page.set_Email("normal_atm@worldticket.net");
+				LogIn_Page.set_Password("atm1234");
+				LogIn_Page.click_LogIn_for_User();
+				Landing_Page.click_Home_Menu();
+				Assert.assertTrue(Landing_Page.is_Member_Login());
+
+			} else if (Landing_Page.is_Corporate_login()) {
+				Landing_Page.click_logOut();
+				Landing_Page.click_Account();
+				LogIn_Page.set_Email("normal_atm@worldticket.net");
+				LogIn_Page.set_Password("atm1234");
+				LogIn_Page.click_LogIn_for_User();
+				Landing_Page.click_Home_Menu();
+				Assert.assertTrue(Landing_Page.is_Member_Login());
+			}
+
+		} else {
+
+			Landing_Page.click_LogIn();
+			LogIn_Page.click_login();
 			LogIn_Page.set_Email("normal_atm@worldticket.net");
 			LogIn_Page.set_Password("atm1234");
 			LogIn_Page.click_LogIn_for_User();
-			Landing_Page.click_Home_Menu();
-			Assert.assertTrue(Landing_Page.is_Member_Login());
+			Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
+			LogIn_Page.click_DAT_Img();
 		}
-	*/
 
 	}
 
 	@Given("^I Login with rloc and lastname$")
 	public void i_login_with_rloc_and_lastname() {
-		
-		Landing_Page.click_LogIn();
-		LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
-		LogIn_Page.set_LastName("WorldTicket");
-		LogIn_Page.click_LogIn_for_RecordLocator();
-		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
-		LogIn_Page.click_DAT_Img();
-		
-		
-		/*
-		if (!Landing_Page.is_Member_Login()) {
-			Landing_Page.click_Account();
-			LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
-			LogIn_Page.set_LastName("WorldTicket");
-			LogIn_Page.click_LogIn_for_RecordLocator();
-			Assert.assertTrue(Landing_Page.is_Member_Login());
+
+		if (Landing_Page.theme.equalsIgnoreCase("NORMAL")) {
+			if (!Landing_Page.is_Member_Login()) {
+				Landing_Page.click_Account();
+				LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
+				LogIn_Page.set_LastName("WorldTicket");
+				LogIn_Page.click_LogIn_for_RecordLocator();
+				Assert.assertTrue(Landing_Page.is_Member_Login());
+			} else {
+				Landing_Page.click_LogIn();
+				LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
+				LogIn_Page.set_LastName("WorldTicket");
+				LogIn_Page.click_LogIn_for_RecordLocator();
+				Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
+				LogIn_Page.click_DAT_Img();
+			}
+
 		}
-		*/
+
 	}
 
 	@Given("^I login corporate user successfully$")
-	public void i_login_corporate_successfully() throws Throwable {// Write code here that turns the phrase above into concrete actions
+	public void i_login_corporate_successfully() throws Throwable {
 
-		Landing_Page.click_LogIn();
-		LogIn_Page.click_login();
-		LogIn_Page.set_Email("corporate_atm@worldticket.net");
-		LogIn_Page.set_Password("atm1234");
-		LogIn_Page.click_LogIn_for_User();
-		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
-		
-		/*
-		if (!Landing_Page.is_Member_Login()) {
-			Landing_Page.click_Account();
+		if (Landing_Page.theme.equalsIgnoreCase("NORMAL")) {
+			if (!Landing_Page.is_Member_Login()) {
+				Landing_Page.click_Account();
+				LogIn_Page.set_Email("corporate_atm@worldticket.net");
+				LogIn_Page.set_Password("atm1234");
+				LogIn_Page.click_LogIn_for_User();
+				Landing_Page.click_Home_Menu();
+				Assert.assertTrue(Landing_Page.is_Member_Login());
+
+			} else if (!Landing_Page.is_Corporate_login()) {
+				Landing_Page.click_logOut();
+				Landing_Page.click_Account();
+				LogIn_Page.set_Email("corporate_atm@worldticket.net");
+				LogIn_Page.set_Password("atm1234");
+				LogIn_Page.click_LogIn_for_User();
+				Landing_Page.click_Home_Menu();
+				Assert.assertTrue(Landing_Page.is_Member_Login());
+			}
+		} else {
+			Landing_Page.click_LogIn();
+			LogIn_Page.click_login();
 			LogIn_Page.set_Email("corporate_atm@worldticket.net");
 			LogIn_Page.set_Password("atm1234");
 			LogIn_Page.click_LogIn_for_User();
-			Landing_Page.click_Home_Menu();
-			Assert.assertTrue(Landing_Page.is_Member_Login());
-
-		} else if (!Landing_Page.is_Corporate_login()) {
-			Landing_Page.click_logOut();
-			Landing_Page.click_Account();
-			LogIn_Page.set_Email("corporate_atm@worldticket.net");
-			LogIn_Page.set_Password("atm1234");
-			LogIn_Page.click_LogIn_for_User();
-			Landing_Page.click_Home_Menu();
-			Assert.assertTrue(Landing_Page.is_Member_Login());
+			Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
 		}
-		*/
 
 	}
 
@@ -815,7 +826,7 @@ public class StepDefinitions extends PageObject {
 	public void i_click_on_cancel_booking_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Cancel_Booking();
 	}
-	
+
 	@Then("^I click on cancel passenger on Manage Booking Page$")
 	public void i_click_on_cancel_passenger_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Cancel_Passenger();
@@ -885,12 +896,12 @@ public class StepDefinitions extends PageObject {
 		Manage_Booking_Page.click_Yes_on_Cancellation_Flight();
 		Assert.assertTrue(Manage_Booking_Page.check_success_cancel());
 	}
-	
+
 	@Then("^I click Yes on cancelled passenger form$")
 	public void i_click_yes_on_cancell_passenger_form() {
 		Cancel_Passenger_Page.click_Yes();
 	}
-	
+
 	@Then("^I click submit on cancelled passenger form$")
 	public void i_click_submit_on_cancell_passenger_form() {
 		Cancel_Passenger_Page.click_submit();
@@ -908,22 +919,20 @@ public class StepDefinitions extends PageObject {
 		Flights_Page.click_Search();
 
 	}
-	
+
 	@Then("^I click to cancel \"(.*)\" adult on cancel passenger form$")
 	public void i_click_adult_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
 		Cancel_Passenger_Page.click_one_Adult(input);
 	}
-	
+
 	@Then("^I click to cancel \"(.*)\" child on cancel passenger form$")
 	public void i_click_child_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
 		Cancel_Passenger_Page.click_one_Child(input);
 	}
-	
+
 	@Then("^I click to cancel \"(.*)\" infant on cancel passenger form$")
 	public void i_click_infant_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
 		Cancel_Passenger_Page.click_one_Infant(input);
 	}
-	
-	
 
 }

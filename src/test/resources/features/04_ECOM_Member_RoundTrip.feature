@@ -80,7 +80,6 @@ Scenario Outline: Member Book Return with package
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 
-@Test
 @Normal_User	
 @Roundtrip
 @Extras

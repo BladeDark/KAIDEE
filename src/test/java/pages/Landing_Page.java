@@ -11,6 +11,7 @@ import net.thucydides.core.pages.PageObject;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Properties;
@@ -21,12 +22,17 @@ import starter.*;
 @DefaultUrl("https://ecom-staging-dat.worldticket.net/")
 public class Landing_Page extends PageObject {
 
+	
+	
 	private Method method = new Method();
-
 	public String origin_Airport;
 	public String destination_Airport;
 	public String departdate;
 	public String returndate;
+	
+	public String theme;
+	
+	
 
 	private String URL = CucumberTestSuite.URL;
 
@@ -43,6 +49,7 @@ public class Landing_Page extends PageObject {
 			resetImplicitTimeout();
 			Is_write_build = true;
 			this.open();
+			this.ReadConfig();
 		} else {
 			method.setWindowSize(getDriver());
 			this.open();
@@ -360,6 +367,33 @@ public class Landing_Page extends PageObject {
 		pw.close();
 
 
+	}
+	
+	private void ReadConfig() throws IOException {
+		Properties props = new Properties();
+		FileInputStream input = null;
+		
+		try {
+
+			input = new FileInputStream("./target/classes/resources-filtered.txt");
+
+			// load a properties file
+			props.load(input);
+
+			// get the property value and print it out
+			theme = props.getProperty("theme");		
+		
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (input != null) {
+				try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

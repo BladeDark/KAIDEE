@@ -17,7 +17,7 @@
         <encoding>UTF-8</encoding>
         <tags></tags>
         <parallel.tests>4</parallel.tests>
-        <EcomTheme>Normal</EcomTheme>
+        <theme>NORMAL</theme>
     </properties>
 
     <repositories>
@@ -158,12 +158,14 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            
-            
-            
-            
-            
         </plugins>
+        
+       <resources>
+      <resource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+        
     </build>
 </project>
