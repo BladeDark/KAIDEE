@@ -17,7 +17,7 @@
         <encoding>UTF-8</encoding>
         <tags></tags>
         <parallel.tests>4</parallel.tests>
-        <webdriver.base.url></webdriver.base.url>
+        <EcomTheme>Normal</EcomTheme>
     </properties>
 
     <repositories>
@@ -158,6 +158,12 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            
+            
+            
+            
+            
         </plugins>
     </build>
 </project>

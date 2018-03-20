@@ -7,7 +7,6 @@ Background:
 	Given I am on world ticket website 
 	And I login normal user successfully
 
-@Test
 @Normal_User
 @Roundtrip
 @Cancel_Passenger
@@ -47,7 +46,6 @@ Scenario Outline: Member Book Round trip and cancel only adult that linked with 
 		|  	Return		|		KRP	      	|			CPH 	    	|     	2 	  		|  		0		|		2		|		DIBS					|
 		
 
-@Test
 @Normal_User
 @Roundtrip
 @Cancel_Passenger
@@ -87,7 +85,7 @@ Scenario Outline: Member Book Round trip and cancel only child
 		|  	Return		|		KRP	      	|			CPH 	    	|     	2 	  		|  		2		|		0		|		DIBS					|
 		
 		
-@Test
+
 @Normal_User
 @Roundtrip
 @Cancel_Passenger

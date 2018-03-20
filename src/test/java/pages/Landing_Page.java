@@ -293,7 +293,7 @@ public class Landing_Page extends PageObject {
 	}
 
 	public void click_LogIn() {
-		WebElementFacade element = find(By.xpath("//a[text()='Log In']"));
+		WebElementFacade element = find(By.xpath("//*[@id='header-account']/ul/li[2]/a"));
 		element.click();
 	}
 	
@@ -312,6 +312,17 @@ public class Landing_Page extends PageObject {
 			return false;
 		} else {
 			return true;
+		}
+	}
+	
+	public boolean Check_Member_Login_withLogOutText() {
+
+		WebElementFacade element = find(By.xpath(".//*[@id='header-account']/ul/li[2]/a"));
+
+		if (element.getText().equalsIgnoreCase("Log Out") || element.getText().equalsIgnoreCase("Log ud")) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -347,6 +358,7 @@ public class Landing_Page extends PageObject {
 		props.list(pw);
 		pw.flush();
 		pw.close();
+
 
 	}
 

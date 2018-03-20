@@ -13,7 +13,7 @@ public class Manage_Booking_Page extends PageObject {
 	Method method = new Method();
 
 	public String manage_booking_Is_Open() {
-		WebElementFacade element = find(By.xpath("//*[@id='top']//div[@class='block-title']/h4"));
+		WebElementFacade element = find(By.xpath("//div[@class='block-title']/h4"));
 		element.waitUntilVisible();
 		return element.getAttribute("innerText");
 	}

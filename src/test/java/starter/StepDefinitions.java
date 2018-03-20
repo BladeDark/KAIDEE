@@ -392,34 +392,36 @@ public class StepDefinitions extends PageObject {
 
 		if (TravelType.equalsIgnoreCase("OneWay")) {
 
-			// booking summary outbound
-			// this.booking_summary_check_outbound();
-
-			// check total amount
-
+			/*booking summary outbound
+			this.booking_summary_check_outbound();
+			*/
+			
+			
+			//check total amount
 			String Grand_Total = Checkout_Page.get_Grand_Total();
-			String Get_Total = Booking_Summary.get_Total();
+			//String Get_Total = Booking_Summary.get_Total();
 
 			Checkout_Page.get_chk_fare(Grand_Total);
-			Checkout_Page.get_sum_fare(Get_Total);
-			Assert.assertTrue(Grand_Total.contains(Get_Total));
+			//Checkout_Page.get_sum_fare(Get_Total);
+			//Assert.assertTrue(Grand_Total.contains(Get_Total));
 
 		} else if (TravelType.equalsIgnoreCase("Return")) {
 
-			// ooking Summary outbound
-			// this.booking_summary_check_outbound();
-
-			// booking Summary inbound
-			// this.booking_summary_check_inbound();
-
+			/*booking Summary outbound
+			this.booking_summary_check_outbound();
+			*/
+			
+			/*booking Summary inbound
+			 this.booking_summary_check_inbound();
+			*/
+			
 			// check total amount
-
 			String Grand_Total = Checkout_Page.get_Grand_Total();
-			String Get_Total = Booking_Summary.get_Total();
+			//String Get_Total = Booking_Summary.get_Total();
 			Checkout_Page.get_chk_fare(Grand_Total);
-			Checkout_Page.get_sum_fare(Get_Total);
-			Assert.assertTrue(Grand_Total.contains(Get_Total));
-
+			//Checkout_Page.get_sum_fare(Get_Total);
+			//Assert.assertTrue(Grand_Total.contains(Get_Total));
+		
 		}
 
 	}
@@ -697,10 +699,16 @@ public class StepDefinitions extends PageObject {
 
 	@Given("^I login normal user successfully$")
 	public void i_login_successfully() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-
-		System.out.print(Landing_Page.is_Corporate_login());
 		
+		Landing_Page.click_LogIn();
+		LogIn_Page.click_login();
+		LogIn_Page.set_Email("normal_atm@worldticket.net");
+		LogIn_Page.set_Password("atm1234");
+		LogIn_Page.click_LogIn_for_User();
+		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
+		LogIn_Page.click_DAT_Img();
+	
+		/*
 		if (!Landing_Page.is_Member_Login()) {
 			Landing_Page.click_Account();
 			LogIn_Page.set_Email("normal_atm@worldticket.net");
@@ -718,11 +726,22 @@ public class StepDefinitions extends PageObject {
 			Landing_Page.click_Home_Menu();
 			Assert.assertTrue(Landing_Page.is_Member_Login());
 		}
+	*/
 
 	}
 
 	@Given("^I Login with rloc and lastname$")
 	public void i_login_with_rloc_and_lastname() {
+		
+		Landing_Page.click_LogIn();
+		LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
+		LogIn_Page.set_LastName("WorldTicket");
+		LogIn_Page.click_LogIn_for_RecordLocator();
+		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
+		LogIn_Page.click_DAT_Img();
+		
+		
+		/*
 		if (!Landing_Page.is_Member_Login()) {
 			Landing_Page.click_Account();
 			LogIn_Page.set_Record_Locator(ThankYou_Page.record_locator);
@@ -730,15 +749,20 @@ public class StepDefinitions extends PageObject {
 			LogIn_Page.click_LogIn_for_RecordLocator();
 			Assert.assertTrue(Landing_Page.is_Member_Login());
 		}
+		*/
 	}
 
 	@Given("^I login corporate user successfully$")
-	public void i_login_corporate_successfully() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+	public void i_login_corporate_successfully() throws Throwable {// Write code here that turns the phrase above into concrete actions
 
+		Landing_Page.click_LogIn();
+		LogIn_Page.click_login();
+		LogIn_Page.set_Email("corporate_atm@worldticket.net");
+		LogIn_Page.set_Password("atm1234");
+		LogIn_Page.click_LogIn_for_User();
+		Assert.assertTrue(Landing_Page.Check_Member_Login_withLogOutText());
 		
-		System.out.print(Landing_Page.is_Corporate_login());
-		
+		/*
 		if (!Landing_Page.is_Member_Login()) {
 			Landing_Page.click_Account();
 			LogIn_Page.set_Email("corporate_atm@worldticket.net");
@@ -756,6 +780,7 @@ public class StepDefinitions extends PageObject {
 			Landing_Page.click_Home_Menu();
 			Assert.assertTrue(Landing_Page.is_Member_Login());
 		}
+		*/
 
 	}
 
