@@ -162,7 +162,7 @@ Scenario Outline: Member Book Return with extra for connected flight
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
 		|  	Return		|		KRP      	|			RNN 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-@Test	
+
 @Roundtrip
 @Package
 @Extras

@@ -40,6 +40,7 @@ public class StepDefinitions extends PageObject {
 	private static Extras_Page Extras_Page;
 	private static LogIn_Page LogIn_Page;
 	private static Manage_Booking_Page Manage_Booking_Page;
+	private static Cancel_Passenger_Page Cancel_Passenger_Page;
 
 	// ---------- Landing Page----------
 	@Given("I am on world ticket website")
@@ -789,6 +790,11 @@ public class StepDefinitions extends PageObject {
 	public void i_click_on_cancel_booking_on_Manage_Booking_Page() {
 		Manage_Booking_Page.click_Cancel_Booking();
 	}
+	
+	@Then("^I click on cancel passenger on Manage Booking Page$")
+	public void i_click_on_cancel_passenger_on_Manage_Booking_Page() {
+		Manage_Booking_Page.click_Cancel_Passenger();
+	}
 
 	@Then("^I click on change date on Manage Booking Page$")
 	public void i_click_on_change_date_on_Manage_Booking_Page() {
@@ -854,6 +860,17 @@ public class StepDefinitions extends PageObject {
 		Manage_Booking_Page.click_Yes_on_Cancellation_Flight();
 		Assert.assertTrue(Manage_Booking_Page.check_success_cancel());
 	}
+	
+	@Then("^I click Yes on cancelled passenger form$")
+	public void i_click_yes_on_cancell_passenger_form() {
+		Cancel_Passenger_Page.click_Yes();
+	}
+	
+	@Then("^I click submit on cancelled passenger form$")
+	public void i_click_submit_on_cancell_passenger_form() {
+		Cancel_Passenger_Page.click_submit();
+		Assert.assertTrue(Manage_Booking_Page.check_success_cancel());
+	}
 
 	@Then("^I click Yes on cancelled booking form$")
 	public void i_click_yes_on_cancell_booking_form() {
@@ -866,5 +883,22 @@ public class StepDefinitions extends PageObject {
 		Flights_Page.click_Search();
 
 	}
+	
+	@Then("^I click to cancel \"(.*)\" adult on cancel passenger form$")
+	public void i_click_adult_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
+		Cancel_Passenger_Page.click_one_Adult(input);
+	}
+	
+	@Then("^I click to cancel \"(.*)\" child on cancel passenger form$")
+	public void i_click_child_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
+		Cancel_Passenger_Page.click_one_Child(input);
+	}
+	
+	@Then("^I click to cancel \"(.*)\" infant on cancel passenger form$")
+	public void i_click_infant_to_cancel_on_cancel_passenger_form(int input) throws Throwable {
+		Cancel_Passenger_Page.click_one_Infant(input);
+	}
+	
+	
 
 }

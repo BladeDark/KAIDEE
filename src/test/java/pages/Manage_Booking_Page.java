@@ -47,6 +47,13 @@ public class Manage_Booking_Page extends PageObject {
 		element.waitUntilVisible();
 		method.jsClick(element, getDriver());
 	}
+	
+	public void click_Cancel_Passenger() {
+		WebElementFacade element = find(By.xpath("//a[@data-target='#cancel-passenger']/span"));
+		element.waitUntilVisible();
+		method.jsClick(element, getDriver());
+	}
+
 
 	public void select_All_Passengers_on_ch_form() {
 		List<WebElementFacade> element = findAll("//input[contains(@id,'change-passenger')]");
