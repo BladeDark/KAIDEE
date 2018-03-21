@@ -36,7 +36,6 @@ Scenario Outline: Member Book Return in connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		0		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 		
@@ -72,7 +71,7 @@ Scenario Outline: UMNR Book Return in connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			RNN 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 		
 
 @Roundtrip
@@ -115,7 +114,6 @@ Scenario Outline: Member Book Return with package for connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 	
 @Roundtrip
@@ -160,7 +158,6 @@ Scenario Outline: Member Book Return with extra for connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP      	|			RNN 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 
 @Roundtrip
@@ -214,5 +211,4 @@ Scenario Outline: Member Book Return with package and extra for connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|

@@ -37,7 +37,7 @@ Scenario Outline: UMNR book return in normal case
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 
 @Roundtrip
 @UMNR
@@ -75,7 +75,7 @@ Scenario Outline: UMNR Book Return with package
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 		
 @Roundtrip
 @UMNR
@@ -115,7 +115,7 @@ Scenario Outline: UMNR Book Return with extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 		
 @Roundtrip
 @UMNR
@@ -160,7 +160,7 @@ Scenario Outline: UMNR Book Return with package and extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 		
 		
 @Roundtrip
@@ -206,7 +206,7 @@ Scenario Outline: UMNR Book Return and buy package after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 
 		
 @Roundtrip
@@ -254,7 +254,7 @@ Scenario Outline: UMNR Book Return and buy extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 
 @Roundtrip
 @UMNR
@@ -305,7 +305,7 @@ Scenario Outline: UMNR Book Return and buy package and extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 
 		
 @Roundtrip
@@ -347,7 +347,7 @@ Scenario Outline: UMNR Book Return and change name all passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 		
 		
 @Roundtrip
@@ -389,7 +389,7 @@ Scenario Outline: UMNR Book Return and change name only one passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  |  		3		|		0		|		DIBS					|
 	
 
 
@@ -436,7 +436,7 @@ Scenario Outline: UMNR Book Round trip and rebook only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		DIBS					|
 
 		
 @Roundtrip
@@ -482,7 +482,7 @@ Scenario Outline: UMNR Book Round trip and rebook only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		DIBS					|
 
 
 @Roundtrip
@@ -532,7 +532,7 @@ Scenario Outline: UMNR Book Round trip and rebook outbound and inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		DIBS					|
 	
 		
 @Roundtrip
@@ -569,7 +569,7 @@ Scenario Outline: UMNR Book Round trip and cancel only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0	  		|  		3		|		0		|		DIBS					|
 		
 	
 @Roundtrip
@@ -606,7 +606,7 @@ Scenario Outline: UMNR Book Round trip and cancel only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		DIBS					|
 		
 @Roundtrip
 @UMNR
@@ -641,5 +641,5 @@ Scenario Outline: UMNR Book Round trip and cancel booking
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	0 	  		|  		3		|		0		|		DIBS					|
 		

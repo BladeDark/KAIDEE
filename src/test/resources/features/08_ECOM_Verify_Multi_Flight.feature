@@ -36,7 +36,6 @@ Scenario Outline: Member Book Return for multi flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		0		|		0		|		CASH					|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 		
@@ -70,4 +69,4 @@ Scenario Outline: UMNR Book Return for multi flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		AAL      	|			RNN 	    	|     	0 	  |  		3		|		0		|		CASH					|
+		|  	Return		|		AAL      	|			RNN 	    	|     	0 	  |  		3		|		0		|		DIBS					|

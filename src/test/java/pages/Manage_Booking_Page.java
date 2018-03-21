@@ -19,19 +19,19 @@ public class Manage_Booking_Page extends PageObject {
 	}
 
 	public void click_Buy_Extras() {
-		WebElementFacade element = find(By.xpath("//span[text()='Buy Extras']"));
+		WebElementFacade element = find(By.xpath("//*[@class='order-icon buy-extra']/a/span")); 
 		element.waitUntilVisible();
 		method.jsClick(element, getDriver());
 	}
 
 	public void click_Change_Name() {
-		WebElementFacade element = find(By.xpath("//span[text()='Change Name']"));
+		WebElementFacade element = find(By.xpath("//a[@data-target='#change-name']/span")); 
 		element.waitUntilVisible();
 		method.jsClick(element, getDriver());
 	}
 
 	public void click_Change_Date() {
-		WebElementFacade element = find(By.xpath("//*[@class='order-icon change-date']/a/span"));
+		WebElementFacade element = find(By.xpath("//a[@data-target='#change-date']/span"));
 		element.waitUntilVisible();
 		method.jsClick(element, getDriver());
 	}
