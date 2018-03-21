@@ -110,7 +110,6 @@ Scenario Outline: Member Book one way with extras
 		|	OneWay		|		KRP			|			CPH				|		1			|		1		|		0		|		DIBS					|
 		|	OneWay		|		KRP			|			CPH				|		1			|		1		|		0		|		Emerchantpay			|
 
-@Test	
 @Normal_User		
 @Oneway
 @Package

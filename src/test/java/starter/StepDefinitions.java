@@ -803,7 +803,7 @@ public class StepDefinitions extends PageObject {
 
 	@Then("^I am on Manage Booking page$")
 	public void i_am_on_Manage_Booking_page() {
-		Assert.assertTrue(Manage_Booking_Page.manage_booking_Is_Open().contains("FLIGHT BOOKING"));
+		Assert.assertTrue(Manage_Booking_Page.manage_booking_Is_Open());
 
 	}
 

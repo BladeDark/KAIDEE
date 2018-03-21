@@ -317,7 +317,7 @@ Scenario Outline: Member Book Return and buy package and extras after
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
 		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
-		
+
 @Normal_User	
 @Roundtrip
 @Namechange
