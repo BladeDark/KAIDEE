@@ -35,8 +35,8 @@ public class StepDefinitions extends PageObject {
 	private static ThankYou_Page ThankYou_Page;
 
 	private static Package_Page Package_Page;
-	private static DIBS DIBS;
-	private static Emerchantpay Emerchantpay;
+	private static DIBS_Page DIBS;
+	private static Emerchantpay_Page Emerchantpay;
 	private static Extras_Page Extras_Page;
 	private static LogIn_Page LogIn_Page;
 	private static Manage_Booking_Page Manage_Booking_Page;

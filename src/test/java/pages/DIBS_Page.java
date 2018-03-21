@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
-public class DIBS extends PageObject {
+public class DIBS_Page extends PageObject {
 
 	public boolean visa_IsVisible() {
 		boolean element = isElementVisible(By.id("paytypeLink_VISA"));

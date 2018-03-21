@@ -6,7 +6,7 @@ so that They can book the flight successfully
 Background: 
 	Given I am on world ticket website
 	And I login normal user successfully
-	
+
 @Multi_Flight
 @Roundtrip
 Scenario Outline: Member Book Return for multi flight

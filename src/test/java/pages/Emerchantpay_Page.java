@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
-public class Emerchantpay extends PageObject {
+public class Emerchantpay_Page extends PageObject {
 	
 	private Method method = new Method();
 
