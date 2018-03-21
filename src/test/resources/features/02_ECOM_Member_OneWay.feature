@@ -1,8 +1,4 @@
 Feature: Verify ECOM booking flow for one way
-As a Guest User
-They want to book flight with one way on ECOM
-so that They can book the flight successfully
-
 Background: 
 	Given I am on world ticket website
 	And I login normal user successfully

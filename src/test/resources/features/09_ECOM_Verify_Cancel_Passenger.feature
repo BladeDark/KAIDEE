@@ -1,7 +1,4 @@
 Feature: Verify ECOM Cancel passenger flow
-As a Member
-They want to cancel flight for specific passenger
-so that They can cancel flight for specific passenger successfully
 
 Background: 
 	Given I am on world ticket website 
@@ -10,7 +7,7 @@ Background:
 @Normal_User
 @Roundtrip
 @Cancel_Passenger
-Scenario Outline: Member Book Round trip and cancel only adult that linked with infant
+Scenario Outline: Verify cancel only adult that linked with infant
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -49,7 +46,7 @@ Scenario Outline: Member Book Round trip and cancel only adult that linked with 
 @Normal_User
 @Roundtrip
 @Cancel_Passenger
-Scenario Outline: Member Book Round trip and cancel only child
+Scenario Outline: Verify cancel only child
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -89,7 +86,7 @@ Scenario Outline: Member Book Round trip and cancel only child
 @Normal_User
 @Roundtrip
 @Cancel_Passenger
-Scenario Outline: Member Book Round trip and cancel All
+Scenario Outline: Verify cancel all passenger
 	When I select "<TravelType>" for travel type
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 

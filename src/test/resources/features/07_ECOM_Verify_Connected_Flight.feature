@@ -1,15 +1,12 @@
 Feature: Verify ECOM booking flow for connected flight
-As a Member
-They want to book flight on ECOM
-so that They can book the flight successfully
 
 Background: 
 	Given I am on world ticket website 
 	And I login normal user successfully
-	
+
 @Connected_Flight
 @Roundtrip
-Scenario Outline: Member Book Return in connected flight
+Scenario Outline: Verify connected flight
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -36,7 +33,6 @@ Scenario Outline: Member Book Return in connected flight
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 		
 
@@ -44,7 +40,7 @@ Scenario Outline: Member Book Return in connected flight
 @Connected_Flight
 @Roundtrip
 @UMNR
-Scenario Outline: UMNR Book Return in connected flight
+Scenario Outline: Verify connected flight with UMNR
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -77,7 +73,7 @@ Scenario Outline: UMNR Book Return in connected flight
 @Roundtrip
 @Package
 @Connected_Flight
-Scenario Outline: Member Book Return with package for connected flight
+Scenario Outline: Verify connected flight with package
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -119,7 +115,7 @@ Scenario Outline: Member Book Return with package for connected flight
 @Roundtrip
 @Extras
 @Connected_Flight
-Scenario Outline: Member Book Return with extra for connected flight
+Scenario Outline: Verify connected flight with extra 
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -164,7 +160,7 @@ Scenario Outline: Member Book Return with extra for connected flight
 @Package
 @Extras
 @Connected_Flight
-Scenario Outline: Member Book Return with package and extra for connected flight
+Scenario Outline: Verify connected flight with package and extra
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -217,7 +213,7 @@ Scenario Outline: Member Book Return with package and extra for connected flight
 @Connected_Flight
 @Roundtrip
 @Package
-Scenario Outline: Member Book Return in connected flight and buy package after
+Scenario Outline: Verify connected flight and buy package after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -265,8 +261,8 @@ Scenario Outline: Member Book Return in connected flight and buy package after
 
 @Connected_Flight
 @Roundtrip
-@Extra
-Scenario Outline: Member Book Return in connected flight and buy extra after
+@Extras
+Scenario Outline: Verify connected flight and buy extra after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -315,9 +311,9 @@ Scenario Outline: Member Book Return in connected flight and buy extra after
 	
 @Connected_Flight
 @Roundtrip
-@Extra
+@Extras
 @Package
-Scenario Outline: Member Book Return in connected flight and buy package and extra after
+Scenario Outline: Verify connected flight and buy package and extra after
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 

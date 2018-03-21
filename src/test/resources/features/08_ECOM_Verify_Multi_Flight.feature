@@ -1,7 +1,4 @@
 Feature: Verify ECOM booking flow for Multi flight
-As a Member
-They want to book flight on ECOM
-so that They can book the flight successfully
 
 Background: 
 	Given I am on world ticket website
@@ -9,7 +6,7 @@ Background:
 
 @Multi_Flight
 @Roundtrip
-Scenario Outline: Member Book Return for multi flight
+Scenario Outline: Verify multi flight
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 
@@ -35,14 +32,13 @@ Scenario Outline: Member Book Return for multi flight
 	
 	
 	Examples: 
-		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		CASH					|
+		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|
 		|  	Return		|		AAL	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 		
 @Multi_Flight
 @Roundtrip
 @UMNR
-Scenario Outline: UMNR Book Return for multi flight 
+Scenario Outline: Verify multi flight with UMNR
 	When I select "<TravelType>" for travel type 
 	And I select "<OriginAirport>" on origin airport 
 	And I select "<DestinationAirport>" on destination airport 

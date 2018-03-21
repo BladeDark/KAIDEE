@@ -1,7 +1,4 @@
 Feature: Verify ECOM booking fllow for UMNR
-As a Member
-They want to book UMNR flight on ECOM
-so that They can book the flight successfully
 
 Background: 
 	Given I am on world ticket website 

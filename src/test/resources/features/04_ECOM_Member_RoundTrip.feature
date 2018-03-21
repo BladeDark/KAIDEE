@@ -1,7 +1,4 @@
 Feature: Verify ECOM booking flow for round trip
-As a Member
-They want to book flight on ECOM
-so that They can book the flight successfully
 
 Background: 
 	Given I am on world ticket website 
@@ -36,9 +33,7 @@ Scenario Outline: Member Book Return in normal case
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		3		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		0		|		DIBS					|
-		|  	Return		|		KRP	      	|			CPH 	    	|     	3 	  |  		3		|		3		|		Emerchantpay			|
 
 @Normal_User
 @Roundtrip
@@ -76,9 +71,7 @@ Scenario Outline: Member Book Return with package
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 
 @Normal_User	
 @Roundtrip
@@ -118,9 +111,7 @@ Scenario Outline: Member Book Return with extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 
 @Normal_User		
 @Roundtrip
@@ -165,9 +156,7 @@ Scenario Outline: Member Book Return with package and extra
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
 @Normal_User
 @Roundtrip
@@ -212,9 +201,7 @@ Scenario Outline: Member Book Return and buy package after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
 @Normal_User
 @Roundtrip
@@ -261,9 +248,7 @@ Scenario Outline: Member Book Return and buy extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 		
 @Normal_User	
 @Roundtrip
@@ -314,9 +299,7 @@ Scenario Outline: Member Book Return and buy package and extras after
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		0		|		Emerchantpay			|
 
 @Normal_User	
 @Roundtrip
@@ -357,9 +340,8 @@ Scenario Outline: Member Book Return and change name all passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
+		
 		
 @Normal_User	
 @Roundtrip
@@ -400,10 +382,7 @@ Scenario Outline: Member Book Return and change name only one passenger
 	
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  |  		1		|		1		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  |  		1		|		1		|		Emerchantpay			|
-
 
 @Normal_User
 @Roundtrip
@@ -448,9 +427,8 @@ Scenario Outline: Member Book Round trip and rebook only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
+
 		
 @Normal_User
 @Roundtrip
@@ -495,9 +473,7 @@ Scenario Outline: Member Book Round trip and rebook only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
 
 @Normal_User
 @Roundtrip
@@ -546,9 +522,8 @@ Scenario Outline: Member Book Round trip and rebook outbound and inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
 		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
-		|  	Return		|		KRP      	|			CPH		    	|     	1 	  		|  		1		|		1		|		Emerchantpay			|
+	
 		
 @Normal_User
 @Roundtrip
@@ -584,7 +559,7 @@ Scenario Outline: Member Book Round trip and cancel only outbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
 		
 @Normal_User	
 @Roundtrip
@@ -620,7 +595,7 @@ Scenario Outline: Member Book Round trip and cancel only inbound segment
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
 		
 @Normal_User
 @Roundtrip
@@ -655,5 +630,5 @@ Scenario Outline: Member Book Round trip and cancel booking
 
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult 	  	|	No_Child	|	No_Infant	| 	Payment_Method 				|	
-		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		CASH					|
+		|  	Return		|		KRP	      	|			CPH 	    	|     	1 	  		|  		1		|		1		|		DIBS					|
 		
