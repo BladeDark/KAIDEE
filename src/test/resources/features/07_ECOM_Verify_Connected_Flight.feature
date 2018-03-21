@@ -213,7 +213,7 @@ Scenario Outline: Member Book Return with package and extra for connected flight
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		0		|		DIBS					|
-		
+@Test	
 @Connected_Flight
 @Roundtrip
 @Package
@@ -262,7 +262,7 @@ Scenario Outline: Member Book Return in connected flight and buy package after
 	Examples: 
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
-		
+@Test	
 @Connected_Flight
 @Roundtrip
 @Extra
@@ -313,7 +313,7 @@ Scenario Outline: Member Book Return in connected flight and buy extra after
 		| TravelType	|	OriginAirport 	|  	DestinationAirport 		| 	No_Adult  |		No_Child	| 	No_Infant	|	Payment_Method 				|	
 		|  	Return		|		KRP	      	|			RNN 	    	|     	1 	  |  		1		|		1		|		DIBS					|
 	
-	
+@Test
 @Connected_Flight
 @Roundtrip
 @Extra
