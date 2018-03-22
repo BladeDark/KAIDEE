@@ -3,7 +3,8 @@ Feature: Verify ECOM booking flow for connected flight
 Background: 
 	Given I am on world ticket website 
 	And I login normal user successfully
-
+	
+@Test
 @Connected_Flight
 @Roundtrip
 Scenario Outline: Verify connected flight

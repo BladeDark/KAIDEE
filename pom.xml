@@ -18,6 +18,7 @@
         <tags></tags>
         <parallel.tests>4</parallel.tests>
         <theme>NORMAL</theme>
+        <webdriver.base.url>https://ecom-staging-dat.worldticket.net/</webdriver.base.url>
     </properties>
 
     <repositories>
@@ -111,10 +112,7 @@
                 <version>2.20</version>
                 <configuration>
                     <includes>
-                        <include>**/*Page.java</include>
-                        <include>**/Page*.java</include>
-                        <include>**/*TestSuite.java</include>
-                        <include>**/When*.java</include>
+                        <include>**/*.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
