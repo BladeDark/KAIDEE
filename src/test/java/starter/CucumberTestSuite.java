@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         features = "src/test/resources/features",
-        tags = "@Connected_Flight"
+        tags = "@Test"
 )
 public class CucumberTestSuite {
 	
