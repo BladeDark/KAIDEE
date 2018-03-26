@@ -17,16 +17,4 @@ import org.junit.runner.RunWith;
 )
 public class CucumberTestSuite {
 	
-	static EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
-	public static String URL;
-
-	@BeforeClass
-	public static void getBuildEcomVersion() {
-	
-		URL = variables.getProperty(ThucydidesSystemProperty.WEBDRIVER_BASE_URL) + "/build.txt";
-		
-		System.out.println(URL);
-		
-	}
-	
 }

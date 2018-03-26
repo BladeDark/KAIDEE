@@ -1,399 +1,214 @@
 package pages;
 
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.Step;
+
+import java.io.File;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.util.List;
-import java.util.Properties;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import starter.*;
-
 @DefaultUrl("https://ecom-staging-dat.worldticket.net/")
 public class Landing_Page extends PageObject {
 
-	
-	
 	private Method method = new Method();
-	public String origin_Airport;
-	public String destination_Airport;
-	public String departdate;
-	public String returndate;
+	private int count = 0;
 	
-	public String theme;
+	private boolean is_login_facebook = false;
+
+	public void click_close_banner() {
+		Actions actions = new Actions(getDriver());
+		WebElementFacade element = find(By.xpath(".//a[@data-name='Login']"));
+		element.waitUntilVisible();
+		actions.moveToElement(element);
+		actions.click().build().perform();
+	}
+
+	public void navigateToLandingPage() {
 	
 	
 
-	private String URL = CucumberTestSuite.URL;
-
-	private boolean Is_write_build = false;
-
-	public void navigateToLandingPage() throws IOException {
-
-		if (!Is_write_build) {
-			method.setWindowSize(getDriver());
-			setImplicitTimeout(5, TimeUnit.SECONDS);
-			getDriver().get(URL);
-			URL = this.getBuildversion();
-			this.WriteFile();
-			resetImplicitTimeout();
-			Is_write_build = true;
+		if (!is_login_facebook){
 			this.open();
-			this.ReadConfig();
-		} else {
-			method.setWindowSize(getDriver());
+			getDriver().manage().window().maximize();
+			this.click_close_banner();
+			this.click_login();
+			this.click_fblogin();
+			this.set_email();
+			this.set_password();
+			this.click_loginOnFacebook();
+			is_login_facebook = true;
+		}else{
 			this.open();
 		}
-
-		this.open();
-
-	}
-
-	private boolean check_txtLanguage(String language) {
-
-		WebElementFacade element = find(
-				By.xpath(".//*[@id='lang-switcher-wrapper-regular']/div/a/span/span[@class='value']"));
-
-		element.waitUntilVisible();
-
-		if (element.getText().equalsIgnoreCase(language)) {
-
-			return true;
-
-		} else {
-			return false;
-		}
-	}
-
-	public void select_Language(String input) {
-
-		boolean chk_language = check_txtLanguage(input);
-
-		if (!chk_language) {
-			WebElementFacade element = find(
-					By.xpath(".//*[@id='lang-switcher-wrapper-regular']/div/a/span/span[@class='caret']"));
-			element.waitUntilVisible();
-			withAction().moveToElement(element).perform();
-			/*
-			 * method.move_holdElement(element, getDriver());
-			 * 
-			 * WebElementFacade click_Language = find(
-			 * By.xpath(".//*[@class='dropdown-content left-hand']//*[text()='"
-			 * + input + "']")); click_Language.waitUntilVisible();
-			 * method.move_holdElement(click_Language, getDriver());
-			 * click_Language.click();
-			 */
-		}
-
-	}
-
-	public void select_OneWay_TravelType() {
-
-		WebElementFacade element = find(By.id("traveltype-one-way"));
-		method.jsClick(element, getDriver());
-
-	}
-
-
-
-	public void select_Return_TravelType() {
-
-		WebElementFacade element = find(By.id("traveltype-return"));
-		method.jsClick(element, getDriver());
-
-	}
-
-	public void select_Origin_Airport(String input) throws InterruptedException {
-		WebElementFacade element = find(By.id("origin"));
-		// method.input_DisabledField(getDriver(), element);
-		Thread.sleep(500);
-		element.clear();
-		element.sendKeys(input);
-		WebElementFacade clickOrigin = find(By.xpath(".//*[@id='originselect']//*[contains(text(),'" + input + "')]"));
-		Thread.sleep(500);
-		clickOrigin.waitUntilVisible();
-		clickOrigin.click();
-
-		origin_Airport = input;
-
-	}
-
-	@Step
-	public void select_Destination_airport(String input) throws InterruptedException {
-		WebElementFacade element = find(By.id("destination"));
-		// method.input_DisabledField(getDriver(), element);
-		element.clear();
-		element.sendKeys(input);
-
-		WebElementFacade clickDestination = find(
-				By.xpath(".//*[@id='destinationselect']//*[contains(text(),'" + input + "')]"));
-		Thread.sleep(1000);
-		clickDestination.waitUntilClickable();
-		clickDestination.click();
-
-		destination_Airport = input;
-
-	}
-
-	public void clickNext_DepartDate() throws InterruptedException {
-
-		WebElementFacade element = find(By.xpath("//*[@id='departdatebox']//*[@title='Next']"));
-		Thread.sleep(1500);
-		element.waitUntilClickable();
-		method.jsClick(element, getDriver());
-
-	}
-
-	public void select_Available_Departure_Date() throws InterruptedException {
-		Random Dice = new Random();
-		Thread.sleep(1000);
-		List<WebElementFacade> element = findAll("//*[@id='departdatebox']//*[@data-handler='selectDay']/a");
-		int n = Dice.nextInt(element.size());
-		element.get(n).waitUntilVisible();
-		method.jsClick(element.get(n), getDriver());
-
-		WebElementFacade txt_departdate = find(By.id("departdate"));
-		departdate = txt_departdate.getValue();
-
-		this.display_departure_date(departdate);
-
-	}
-
-	@Step("Departure date is: {0}")
-	public void display_departure_date(String rloc) {
-
-	}
-
-	public void clickNext_ReturnDate() throws InterruptedException {
-
-		WebElementFacade element = find(By.xpath("//*[@id='returndatebox']//*[@title='Next']"));
-		Thread.sleep(1000);
-		element.waitUntilClickable();
-		method.jsClick(element, getDriver());
-	}
-
-	public void select_Available_Return_Date() throws InterruptedException {
-		Random Dice = new Random();
-		Thread.sleep(1000);
-		List<WebElementFacade> element = findAll("//*[@id='returndatebox']//*[@data-handler='selectDay']/a");
-		int n = Dice.nextInt(element.size());
-		element.get(n).waitUntilVisible();
-		method.jsClick(element.get(n), getDriver());
-		WebElementFacade txt_departdate = find(By.id("returndate"));
-		returndate = txt_departdate.getValue();
-
-		this.display_return_date(returndate);
-
-	}
-
-	@Step("Return date is: {0}")
-	public void display_return_date(String rloc) {
-
-	}
-
-	public void select_Passenger_Type(String input) {
-
-		WebElementFacade element = find(By.xpath(".//*[text()='" + input + "']"));
-		element.waitUntilVisible();
-		element.click();
-	}
-
-	public void expand_Passenger() {
-		WebElementFacade element = find(By.id("select-child-note"));
-		method.jsClick(element, getDriver());
-		// element.click();
-	}
-
-	public void select_Adult(String input) {
-		WebElementFacade element = find(By.id("select-adult"));
-		element.selectByValue(input);
-	}
-
-	public void select_Child(String input) throws InterruptedException {
-		setImplicitTimeout(3, TimeUnit.SECONDS);
-		WebElementFacade isUMNRdisplay = find(
-				By.xpath("//*[@id='umnr-text-modal']//button[@class='btn button btn-checkout']"));
-		WebElementFacade element = find(By.id("select-child"));
-
-		if (isUMNRdisplay.isCurrentlyVisible()) {
-			Thread.sleep(500);
-			isUMNRdisplay.click();
-			element.selectByValue(input);
-		} else {
-
-			element.selectByValue(input);
-
-			if (isUMNRdisplay.isCurrentlyVisible()) {
-				Thread.sleep(500);
-				isUMNRdisplay.click();
-			}
-		}
-
-		resetImplicitTimeout();
-
-	}
-
-	public void select_Infant(String input) {
-		WebElementFacade element = find(By.id("select-infant"));
-		element.selectByValue(input);
-	}
-
-	public void click_Search() {
-		WebElementFacade element = find(By.id("btnSearch"));
-		element.click();
-	}
-
-	// Menu
-	public void click_Home_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[4]/a"));
-		element.click();
-	}
-
-	public void click_Booking_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[5]/a"));
-		element.click();
-	}
-
-	public void click_New_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[6]/a"));
-		element.click();
-	}
-
-	public void click_OnlineCheckIn_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[7]/a"));
-		element.click();
-	}
-
-	public void click_BeforeDeparture_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[8]/a"));
-		element.click();
-	}
-
-	public void click_InTheAir_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[9]/a"));
-		element.click();
-	}
-
-	public void click_AfterTravel_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[10]/a"));
-		element.click();
-	}
-
-	public void click_Extra_Menu() {
-		WebElementFacade element = find(By.xpath(".//*[@id='nav']/li[11]/a"));
-		element.click();
-	}
-
-	public void click_Account() {
-		WebElementFacade element = find(By.xpath("//*[@id='header-account']/ul/li[1]/a"));
-		element.click();
-	}
-
-	public void click_LogIn() {
-		WebElementFacade element = find(By.xpath("//*[@id='header-account']/ul/li[2]/a"));
-		element.click();
-	}
 	
-	public void click_logOut() {
-
-		WebElementFacade element = find(By.xpath("//div[@id='header-account']/ul/li[@class=' last']/a"));
-		element.waitUntilVisible();
-		element.click();
-
-	}
-	public boolean is_Member_Login() {
-
-		WebElementFacade element = find(By.xpath(".//*[@id='header-account']/ul/li[2]/a"));
-
-		if (element.getText().equalsIgnoreCase("Log in") || element.getText().equalsIgnoreCase("Log ind")) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-	
-	public boolean Check_Member_Login_withLogOutText() {
-
-		WebElementFacade element = find(By.xpath(".//*[@id='header-account']/ul/li[2]/a"));
-
-		if (element.getText().equalsIgnoreCase("Log Out") || element.getText().equalsIgnoreCase("Log ud")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean is_Corporate_login() {
-
-		WebElementFacade element = find(By.xpath("//*[@id='header-account']/ul/li[1]/a"));
-
-		if (element.getText().equalsIgnoreCase("Account")) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	private String getBuildversion() {
-		WebElementFacade element = find(By.xpath("xhtml:html/xhtml:body/xhtml:pre"));
-
-		if (element.isVisible()) {
-			return element.getText();
-		} else {
-			return "No build";
-		}
-	}
-
-	private void WriteFile() throws IOException {
-		FileInputStream in = new FileInputStream("./serenity.properties");
-		Properties props = new Properties();
-		props.load(in);
-		in.close();
-
-		PrintWriter pw = new PrintWriter(new FileOutputStream("./serenity.properties"));
-		props.setProperty("serenity.project.name", "ECOM Report build " + this.URL);
-		props.list(pw);
-		pw.flush();
-		pw.close();
-
-
-	}
-	
-	private void ReadConfig() throws IOException {
-		Properties props = new Properties();
-		FileInputStream input = null;
 		
-		try {
+	}
 
-			input = new FileInputStream("./target/classes/resources-filtered.txt");
+	public void click_login() {
+		WebElementFacade element = find(By.xpath(".//a[@data-name='Login']"));
+		element.waitUntilVisible();
+		method.jsClick(element, getDriver());
 
-			// load a properties file
-			props.load(input);
+	}
 
-			// get the property value and print it out
-			theme = props.getProperty("theme");		
-		
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
+	public void click_fblogin() {
+		WebElementFacade element = find(By.id("fb-login"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void set_email() {
+
+		for (String handle : getDriver().getWindowHandles()) {
+			getDriver().switchTo().window(handle);
+		}
+
+		WebElementFacade element = find(By.id("email"));
+		//element.sendKeys("ras_thaitay@hotmail.com");
+		 element.sendKeys("Revalution_blue@hotmail.com");
+	}
+
+	public void set_password() {
+		WebElementFacade element = find(By.id("pass"));
+		element.waitUntilVisible();
+		//element.sendKeys("bladedark@19580");
+		element.sendKeys("022129125");
+	}
+
+	public void click_loginOnFacebook() {
+
+		WebElementFacade element = find(By.name("login"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void drop_image(String path) {
+
+		WebElementFacade element = find(By.xpath("//*[@id='upload-photo']/div/div[2]/div/input"));
+
+		File main_folder = new File(path);
+
+		int fileCount = main_folder.list().length;
+
+		String[] names = main_folder.list();
+
+		if (main_folder.isDirectory()) {
+			File sub_folder = new File(path + "\\" + names[count]);
+			if (sub_folder.isDirectory()) {
+				String[] images = sub_folder.list();
+				
+				for (int i=0;i<images.length;i++){
+					
+					element.sendKeys(path + "\\" + names[count] + "\\" + images[i]);
 				}
+				count++;
 			}
 		}
+
+		
+
 	}
+
+	public void click_sell_btn() {
+		for (String handle : getDriver().getWindowHandles()) {
+			getDriver().switchTo().window(handle);
+		}
+		WebElementFacade element = find(By.id("bar-sell-button"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void select_category() throws InterruptedException {
+		WebElementFacade element = find(By.id("category"));
+		element.waitUntilVisible();
+		element.click();
+		
+		 Thread.sleep(500);
+
+		WebElementFacade element_2 = find(By.xpath("//span[@data-category-id='96']"));
+		element_2.waitUntilVisible();
+		element_2.click();
+		
+		 Thread.sleep(500);
+
+		WebElementFacade element_3 = find(By.xpath("//span[@data-category-id='128']"));
+		element_3.waitUntilVisible();
+		element_3.click();
+
+	}
+
+	public void select_address() throws InterruptedException {
+		WebElementFacade element = find(By.xpath("//span[@tabindex='6']"));
+		element.waitUntilVisible();
+		element.click();
+		
+		Thread.sleep(500);
+
+		WebElementFacade element_2 = find(By.xpath("//a[@data-province-id='9']"));
+		element_2.waitUntilVisible();
+		element_2.click();
+		
+		Thread.sleep(500);
+
+		WebElementFacade element_3 = find(By.xpath("//a[@data-district-id='45']"));
+		element_3.waitUntilVisible();
+		element_3.click();
+
+	}
+
+	public void write_topic(String text) {
+		WebElementFacade element = find(By.id("topic"));
+		element.waitUntilVisible();
+		element.sendKeys(text);
+	}
+
+	public void write_price(String text) {
+		WebElementFacade element = find(By.id("price"));
+		element.waitUntilVisible();
+		element.sendKeys(text);
+	}
+
+	public void write_details() {
+		WebElementFacade element = find(By.id("detail"));
+		element.waitUntilVisible();
+		element.sendKeys("สนใจติดต่อสอบถามได้เลยครับ มีตำหนิตรงไหนเราบอกหมด" + "\n" + "Line: @thaiblue" + "\n"
+				+ "เราขายแต่ของแท้นะครับ ไม่แท้ยินดีคืนเงินเต็มจำนวน" + "\n" + "EMS: 80 ลงทะเบียน 60" + "\n" + "\n"
+				+ "facebook: https://www.facebook.com/thaiblueshop/" + "\n"
+				+ "Instagram: https://www.instagram.com/thaiblueshop/" + "\n"
+				+ "Website: http://thaiblue.lnwshop.com/");
+	}
+
+	public void click_sell_checkbox() {
+		WebElementFacade element = find(By.xpath("//input[@id='radio'][@value='2']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+
+	public void click_secondhand_checkbox() {
+		WebElementFacade element = find(By.xpath("//input[@id='radio_type'][@value='2']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	public void click_submit() {
+		WebElementFacade element = find(By.xpath("//button[@tabindex='8']"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	public boolean is_insert_success() {
+		WebElementFacade element = find(By.xpath("//*[@id='main']/div/div/div/span"));
+		
+		if (element.isVisible()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
 
 }
