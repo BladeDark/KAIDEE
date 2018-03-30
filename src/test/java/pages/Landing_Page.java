@@ -67,15 +67,15 @@ public class Landing_Page extends PageObject {
 		}
 
 		WebElementFacade element = find(By.id("email"));
-		//element.sendKeys("ras_thaitay@hotmail.com");
-		 element.sendKeys("Revalution_blue@hotmail.com");
+		element.sendKeys("ras_thaitay@hotmail.com");
+		//element.sendKeys("Revalution_blue@hotmail.com");
 	}
 
 	public void set_password() {
 		WebElementFacade element = find(By.id("pass"));
 		element.waitUntilVisible();
-		//element.sendKeys("bladedark@19580");
-		element.sendKeys("022129125");
+		element.sendKeys("bladedark@19580");
+		//element.sendKeys("022129125");
 	}
 
 	public void click_loginOnFacebook() {
@@ -121,23 +121,27 @@ public class Landing_Page extends PageObject {
 		element.click();
 	}
 
-	public void select_category() throws InterruptedException {
+	public void select_category(String value) throws InterruptedException {
 		WebElementFacade element = find(By.id("category"));
 		element.waitUntilVisible();
 		element.click();
 		
-		 Thread.sleep(500);
-
+		
+		Thread.sleep(500);
+		
 		WebElementFacade element_2 = find(By.xpath("//span[@data-category-id='96']"));
 		element_2.waitUntilVisible();
 		element_2.click();
 		
-		 Thread.sleep(500);
-
-		WebElementFacade element_3 = find(By.xpath("//span[@data-category-id='128']"));
-		element_3.waitUntilVisible();
-		element_3.click();
-
+		if (value.equalsIgnoreCase("Male")){
+			WebElementFacade element_3 = find(By.xpath("//span[@data-category-id='128']"));
+			element_3.waitUntilVisible();
+			element_3.click();
+		}else{
+			WebElementFacade element_3 = find(By.xpath("//span[@data-category-id='127']"));
+			element_3.waitUntilVisible();
+			element_3.click();
+		}
 	}
 
 	public void select_address() throws InterruptedException {
@@ -162,7 +166,7 @@ public class Landing_Page extends PageObject {
 	public void write_topic(String text) {
 		WebElementFacade element = find(By.id("topic"));
 		element.waitUntilVisible();
-		element.sendKeys(text);
+		element.sendKeys(text + " " + "สภาพดีมากครับ");
 	}
 
 	public void write_price(String text) {

@@ -24,7 +24,7 @@ public class StepDefinitions extends PageObject {
 	private static Landing_Page Landing_Page;
 
 	
-	String Dir = "C:\\Users\\Lek\\Desktop\\Shoes";
+	String Dir = "C:\\Users\\ras_t\\Desktop\\Shoes";
 
 	
 
@@ -47,10 +47,10 @@ public class StepDefinitions extends PageObject {
 	}
 
 
-	@When("^I select category$")
-	public void i_select_catrgory() throws Exception {
+	@When("^I select \"([^\"]*)\" category$")
+	public void i_select_catrgory(String value) throws Exception {
 	  
-	   Landing_Page.select_category();
+	   Landing_Page.select_category(value);
 	
 	 
 	}
