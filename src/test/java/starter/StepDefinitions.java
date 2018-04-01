@@ -24,8 +24,9 @@ public class StepDefinitions extends PageObject {
 	private static Landing_Page Landing_Page;
 
 	
-	String Dir = "C:\\Users\\ras_t\\Desktop\\Shoes";
+	String Dir = "C:\\Users\\Lek\\Desktop\\Shoes";
 
+	String Dir_remove =  "C:\\Users\\Lek\\Desktop\\Dog\\dog.jpg";
 	
 
 	// ---------- Landing Page----------
@@ -105,7 +106,13 @@ public class StepDefinitions extends PageObject {
 		Assert.assertTrue(Landing_Page.is_insert_success());
 	}
 	
-	
+
+
+	@When("^I remove my advert$")
+	public void i_remove_my_advert() throws Exception {
+	   
+		Landing_Page.remove_first_advertisement("Adidas ปี2016 Size 43.5 ยาว 27.5 คู่นี้มีตำหนิข้างในตรงส้นเล็กน้อยไม่มีผล", Dir_remove);
+	}
 	
 	
 	

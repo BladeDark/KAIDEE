@@ -3,6 +3,7 @@ package pages;
 import net.thucydides.core.annotations.DefaultUrl;
 
 import java.io.File;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -13,10 +14,14 @@ import net.thucydides.core.pages.PageObject;
 @DefaultUrl("https://ecom-staging-dat.worldticket.net/")
 public class Landing_Page extends PageObject {
 
+	
+	
+	
+	
 	private Method method = new Method();
 	private int count = 0;
-	
 	private boolean is_login_facebook = false;
+	private boolean is_advertisement_close_homepage = false;
 
 	public void click_close_banner() {
 		Actions actions = new Actions(getDriver());
@@ -67,15 +72,15 @@ public class Landing_Page extends PageObject {
 		}
 
 		WebElementFacade element = find(By.id("email"));
-		element.sendKeys("ras_thaitay@hotmail.com");
-		//element.sendKeys("Revalution_blue@hotmail.com");
+		//element.sendKeys("ras_thaitay@hotmail.com");
+		element.sendKeys("Revalution_blue@hotmail.com");
 	}
 
 	public void set_password() {
 		WebElementFacade element = find(By.id("pass"));
 		element.waitUntilVisible();
-		element.sendKeys("bladedark@19580");
-		//element.sendKeys("022129125");
+		//element.sendKeys("bladedark@19580");
+		element.sendKeys("022129125");
 	}
 
 	public void click_loginOnFacebook() {
@@ -83,6 +88,12 @@ public class Landing_Page extends PageObject {
 		WebElementFacade element = find(By.name("login"));
 		element.waitUntilVisible();
 		element.click();
+	}
+	
+	private void get_current_window(){
+		for (String handle : getDriver().getWindowHandles()) {
+			getDriver().switchTo().window(handle);
+		}
 	}
 
 	public void drop_image(String path) {
@@ -113,9 +124,7 @@ public class Landing_Page extends PageObject {
 	}
 
 	public void click_sell_btn() {
-		for (String handle : getDriver().getWindowHandles()) {
-			getDriver().switchTo().window(handle);
-		}
+		this.get_current_window();
 		WebElementFacade element = find(By.id("bar-sell-button"));
 		element.waitUntilVisible();
 		element.click();
@@ -166,7 +175,8 @@ public class Landing_Page extends PageObject {
 	public void write_topic(String text) {
 		WebElementFacade element = find(By.id("topic"));
 		element.waitUntilVisible();
-		element.sendKeys(text + " " + "สภาพดีมากครับ");
+		element.clear();
+		element.sendKeys(text + " " + "มือสอง");
 	}
 
 	public void write_price(String text) {
@@ -214,5 +224,127 @@ public class Landing_Page extends PageObject {
 	}
 	
 	
+	public void click_profile() {
+		this.get_current_window();
+		
+		WebElementFacade element = find(By.xpath("//*[@id='user-menu-item']/p/span/a/span[2]"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	public void click_myAdvert() {
+		
+		
+		WebElementFacade element = find(By.xpath("//a[@accesskey='a']"));
+		element.waitUntilVisible();
+		element.click();
+		
+	}
+	
+	public void click_close_advertise_on_myAdvert(){
+		
+		if (!is_advertisement_close_homepage) {
+			WebElementFacade element = find(By.xpath("//a[@class='df-icon-dfclose']"));
+			element.waitUntilVisible();
+			element.click();
+			is_advertisement_close_homepage = true;
+		}
+		
+	
+		
+	}
+	
+	
+	
+	public void remove_first_advertisement(String topic,String imagePath) throws InterruptedException{
+		
+		
+		
+			this.click_profile();
+			this.click_myAdvert();
+			this.click_close_advertise_on_myAdvert();
+			
+	
+		
+		
+		
+		WebElementFacade element = find(By.xpath("//*[@id='member-page']/div/section/div/div/ul/li[1]/a"));
+		
+		boolean Is_advertise_visible = element.isVisible() ;
+		boolean first_time = false ;
+		
+		do {
+			
+			if (first_time) {
+				this.click_profile();
+				this.click_myAdvert();
+				this.click_close_advertise_on_myAdvert();
+				
+			}
+			
+			this.click_first_advertisement();
+			this.click_edit_advertisement();
+			
+			this.click_edit_advertisement_popup();
+			
+			this.write_topic(topic);
+			this.delete_picture();
+			this.drop_image_editcase(imagePath);
+			this.click_submit();
+			this.is_insert_success();
+			Thread.sleep(8000);
+			first_time = true;
+			
+			
+			
+		}while(Is_advertise_visible);
+		
+		
+		
+	}
+	
+	private void click_first_advertisement(){
+		WebElementFacade element = find(By.xpath("//*[@id='member-page']/div/section/div/div/ul/li[1]/a"));
+		element.waitUntilVisible();
+		element.click();
+		
+	}
+	
+	private void click_edit_advertisement(){
+		WebElementFacade element = find(By.xpath("//ul[@class='additional-info  reset']/li[6]/a"));
+		element.waitUntilVisible();
+		element.click();
+	}
+	
+	private void click_edit_advertisement_popup(){
+		
+		
+			WebElementFacade element = find(By.xpath("//div[@class='item-action-modal']/a[1]"));
+			element.waitUntilVisible();
+			element.click();
+		
+		}
+		
+	
+	
+	private void delete_picture() throws InterruptedException{
+		List<WebElementFacade> element = findAll("//ul[@class='list-image reset']/li");
+		WebElementFacade remove_element = find(By.xpath("//ul[@class='list-image reset']/li[1]/span[1]"));
+		
+		for (int i=0;i<element.size();i++) {
+			remove_element.waitUntilVisible();
+			remove_element.click();
+			
+		}
+	}
+	
+	
+	private void drop_image_editcase(String path) {
+		WebElementFacade element = find(By.xpath("//*[@id='upload-photo']/div/div[2]/div/input"));
+		element.sendKeys(path);
+	}
 
+
+	
+	
 }
