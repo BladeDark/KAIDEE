@@ -22,6 +22,7 @@ public class StepDefinitions extends PageObject {
 	// Page Object
 	@Steps
 	private static Landing_Page Landing_Page;
+	
 
 	
 	String Dir = "C:\\Users\\Lek\\Desktop\\Shoes";
@@ -44,6 +45,8 @@ public class StepDefinitions extends PageObject {
 	public void i_click_sell_button() throws Exception {
 		Thread.sleep(1000);
 	   Landing_Page.click_sell_btn();
+	   
+	   
 
 	}
 
@@ -73,7 +76,7 @@ public class StepDefinitions extends PageObject {
 	@When("^I drop all images$")
 	public void i_drop_all_images() throws Exception {
 	    
-	 Landing_Page.drop_image(Dir);
+	 Landing_Page.drop_image(Dir,Landing_Page.count);
 	}
 
 	@When("^I fill product details$")

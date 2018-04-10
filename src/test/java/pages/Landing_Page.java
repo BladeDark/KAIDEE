@@ -15,11 +15,11 @@ import net.thucydides.core.pages.PageObject;
 public class Landing_Page extends PageObject {
 
 	
-	
+	public int count = 0;
+	private boolean is_first_time = true;
 	
 	
 	private Method method = new Method();
-	private int count = 0;
 	private boolean is_login_facebook = false;
 	private boolean is_advertisement_close_homepage = false;
 
@@ -47,6 +47,13 @@ public class Landing_Page extends PageObject {
 			is_login_facebook = true;
 		}else{
 			this.open();
+		}
+		
+		
+		if (is_first_time){
+			is_first_time = false;
+		}else{
+			count++;
 		}
 	
 		
@@ -96,13 +103,11 @@ public class Landing_Page extends PageObject {
 		}
 	}
 
-	public void drop_image(String path) {
+	public void drop_image(String path,int count) {
 
 		WebElementFacade element = find(By.xpath("//*[@id='upload-photo']/div/div[2]/div/input"));
 
 		File main_folder = new File(path);
-
-		int fileCount = main_folder.list().length;
 
 		String[] names = main_folder.list();
 
@@ -176,7 +181,7 @@ public class Landing_Page extends PageObject {
 		WebElementFacade element = find(By.id("topic"));
 		element.waitUntilVisible();
 		element.clear();
-		element.sendKeys(text + " " + "มือสอง");
+		element.sendKeys(text + " " + "");
 	}
 
 	public void write_price(String text) {

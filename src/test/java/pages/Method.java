@@ -91,7 +91,6 @@ public class Method extends PageObject{
 	public void ScrollToSpecificElement(WebDriver driver,WebElementFacade element) throws InterruptedException{	
 		Point hoverItem = element.getLocation();
 		((JavascriptExecutor)driver).executeScript("return window.title;");  
-		Thread.sleep(6000);
 		((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+(hoverItem.getY())+");"); 
 	}
 	
